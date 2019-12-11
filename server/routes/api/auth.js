@@ -8,23 +8,42 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 3;
 
 
-router.get("/login", (req, res, next) => {
-  res.render("auth/login", {
-    "message": req.flash("error")
-  });
+// router.get("/login", (req, res, next) => {
+//   res.render("auth/login", {
+//     "message": req.flash("error")
+//   });
+// });
+
+router.post('/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, failureDetails) => {
+    if (err) {
+      res.status(500).json({
+        message: 'Something went wrong authenticating user'
+      });
+      return;
+    }
+
+    if (!user) {
+      res.status(401).json(failureDetails);
+      return;
+    }
+    req.login(user, (err) => {
+      if (err) {
+        res.status(500).json({
+          message: 'Session save went bad.'
+        });
+        return;
+      }
+      res.status(200).json(user);
+    });
+  })(req, res, next);
 });
 
-router.post("/login", passport.authenticate("local", {
-  successRedirect: "/",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
-}));
 
 // Redirect the user to Facebook for authentication.  When complete,
 // Facebook will redirect the user back to the application at
 //     /auth/facebook/callback
-app.get('/auth/facebook', passport.authenticate('facebook'));
+router.get('/facebook', passport.authenticate('facebook'));
 
 {
   /* <a href="/auth/facebook">Login with Facebook</a> */
@@ -34,7 +53,7 @@ app.get('/auth/facebook', passport.authenticate('facebook'));
 // authentication process by attempting to obtain an access token.  If
 // access was granted, the user will be logged in.  Otherwise,
 // authentication has failed.
-app.get('/auth/facebook/callback',
+router.get('/auth/facebook/callback',
   passport.authenticate('facebook', {
     successRedirect: '/',
     failureRedirect: '/login'
@@ -51,7 +70,9 @@ router.get(
   })
 );
 
-{/* <a href="/auth/google">Login With Google</a> */}
+{
+  /* <a href="/auth/google">Login With Google</a> */
+}
 
 router.get(
   "/auth/google/callback",
@@ -61,16 +82,18 @@ router.get(
   })
 );
 
-router.get("/signup", (req, res, next) => {
-  res.render("auth/signup");
-});
+// router.get("/signup", (req, res, next) => {
+//   res.render("auth/signup");
+// });
 
 router.post("/signup", (req, res, next) => {
-  const username = req.body.username;
-  const password = req.body.password;
+  const {
+    username,
+    password
+  } = req.body;
   if (username === "" || password === "") {
-    res.render("auth/signup", {
-      message: "Indicate username and password"
+    res.status(400).json({
+      message: 'Provide username and password'
     });
     return;
   }
@@ -78,9 +101,16 @@ router.post("/signup", (req, res, next) => {
   User.findOne({
     username
   }, "username", (err, user) => {
-    if (user !== null) {
-      res.render("auth/signup", {
-        message: "The username already exists"
+    if (err) {
+      res.status(500).json({
+        message: "Username check went bad."
+      });
+      return;
+    }
+
+    if (user) {
+      res.status(400).json({
+        message: 'Username taken. Choose another one.'
       });
       return;
     }
@@ -93,21 +123,53 @@ router.post("/signup", (req, res, next) => {
       password: hashPass
     });
 
-    newUser.save()
-      .then(() => {
-        res.redirect("/");
-      })
-      .catch(err => {
-        res.render("auth/signup", {
-          message: "Something went wrong"
+    newUser.save(err => {
+      if (err) {
+        res.status(400).json({
+          message: 'Error saving user'
         });
+        return;
+      }
+      req.login(newUser, (err) => {
+        if (err) {
+          res.status(500).json({
+            message: 'Error login in after signup'
+          });
+          return;
+        }
+        res.status(200).json(newUser);
       })
+    })
   });
 });
 
-router.get("/logout", (req, res) => {
+
+router.post("/logout", (req, res, next) => {
   req.logout();
-  res.redirect("/");
+  res.status(200).json({
+    message: 'Log out success!'
+  });
 });
 
+router.get('/loggedin', (req, res, next) => {
+  if (req.isAuthenticated()) {
+    res.status(200).json(req.user);
+    return;
+  }
+  res.status(403).json({
+    message: 'Unauthorized'
+  });
+});
+
+router.post('/upload', uploader.single('image'), (req, res) => {
+  if (req.file) {
+    res.status(200).json({
+      secure_url: req.file.secure_url
+    })
+  } else {
+    res.status(500).json({
+      message: 'Something went wrong'
+    });
+  }
+});
 module.exports = router;
