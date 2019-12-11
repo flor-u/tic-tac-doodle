@@ -25,7 +25,7 @@ export default class Access extends Component {
     .then(
       (user) => {
         setUser(user);
-        history.push("/profile")
+        history.push("/choose-game")
       },
       (error) => {
         console.error(error)

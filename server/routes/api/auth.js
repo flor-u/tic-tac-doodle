@@ -6,6 +6,7 @@ const User = require("../../models/User");
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 3;
+const words=require('../../../client/src/words.json')
 
 
 // router.get("/login", (req, res, next) => {
@@ -73,6 +74,11 @@ router.get(
 {
   /* <a href="/auth/google">Login With Google</a> */
 }
+
+router.get("/words", (req, res, next) => {
+  res.json(words
+  );
+});
 
 router.get(
   "/auth/google/callback",

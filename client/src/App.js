@@ -62,7 +62,8 @@ class App extends React.Component {
             <Route
               exact
               path='/draw'
-              render={match => <Canvas {...match} setUser={this.setUser} />} />
+              render={match => 
+              <Canvas {...match} setUser={this.setUser} />} />
           </Switch>
         )}
         {!user && (
