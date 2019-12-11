@@ -16,7 +16,7 @@ export default class ChooseCard extends Component {
       <div>
         {Object.keys(this.state.words[0]).map((arr, idx)=>{
                   
-                  return <Link key={idx} to={arr}>{arr} </Link>
+                  return <Link key={idx} to='/select'>{arr} </Link>
                 })} 
 
         <button>{}</button>

@@ -75,10 +75,6 @@ router.get(
   /* <a href="/auth/google">Login With Google</a> */
 }
 
-router.get("/words", (req, res, next) => {
-  res.json(words
-  );
-});
 
 router.get(
   "/auth/google/callback",

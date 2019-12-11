@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 export default class Login extends Component {
   constructor(props) {
     super(props);
+    // console.log(props)
     this.authService = new AuthService();
   }
 
@@ -13,11 +14,19 @@ export default class Login extends Component {
     username: '',
     password: ''
   }
+
+//   sendChangeToApp= (e) => {
+//     const { key, value } = e.target;
+//     return this.props.changeApp(key,value)
+// }
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({...this.state, [name]:value})
+    
   }
+
   handleLogin = (e) => {
+  
     const { setUser, history } = this.props;
     e.preventDefault()
     this.authService.login(this.state)
@@ -33,6 +42,7 @@ export default class Login extends Component {
   }
 
   render() {
+   console.log(this.state)
     const { username, password } = this.state;
     return (
         <div>
