@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import AuthService from '../services/AuthService'
-import ChooseCard from './chooseCard';
+import Navigation from './NavBar';
+
 
 export default class Choose extends Component {
     constructor(props) {
@@ -10,18 +11,13 @@ export default class Choose extends Component {
     
   }
 
-  state = {
-    username: '',
-    password: '',
-    category:''
-
-  }
 
   handleChange = (e) => {
-    //   e.preventDefault()
-      console.log(e.target.value, e.target.name)
+  
     const { name, value } = e.target;
-    this.setState({...this.state, [name]:value})
+    // this.setState({[name]:value})
+    this.props.setCategory({[name]:value})
+    
     
   }
 //   sendChangeToApp= (e) => {
@@ -31,26 +27,34 @@ export default class Choose extends Component {
 // }
 
     render() {
-        // console.log(this.props)
+        console.log(this.state)
         return (
             <div>
-            {/* <button value="easy" name="category" 
+            <div>
+            <h3>Level</h3>
+            <button type='button' value="easy" name="category" 
+            onClick={this.handleChange}>Easy</button>
+             <button type='button' value="medium" name="category" 
             onClick={this.handleChange}
-            >aqui</button> */}
-            <button>
-            <Link to='/select' name='category' value="a"
-            onClick={this.handleChange}>
-            aqui
-          </Link>
-          </button>
-          <button>
-          <Link to='/select'>
-            Choose game
-          </Link>
-        </button>
-                <Link to='/' onClick={this.logoutUser}>
-          Logout
-        </Link>
+            >Medium</button>
+             <button type='button' value="hard" name="category" 
+            onClick={this.handleChange}
+            >Hard</button>
+            </div>
+            <div>
+            <h3>Theme</h3>
+            <button type='button' value="objects" name="category" 
+            onClick={this.handleChange}
+            >Objects</button>
+             <button type='button' value="persons" name="category" 
+            onClick={this.handleChange}
+            >Persons</button>
+             <button type='button' value="actions" name="category" 
+            onClick={this.handleChange}
+            >Actions</button>
+            </div>
+            <Link to='/select'>Go</Link>
+                
             </div>
         )
     }

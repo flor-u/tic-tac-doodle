@@ -27,7 +27,7 @@ class AuthService {
     .catch(error => console.error(error))
   }
 
-  loggedOutUser = (user) => {
+  logout = (user) => {
     return this.instance.post('/logout', user)
     .then(res => Promise.resolve(res.data))
     .catch(error => console.error(error))

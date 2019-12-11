@@ -10,7 +10,7 @@ const path         = require('path');
 
 const session    = require("express-session");
 const MongoStore = require('connect-mongo')(session);
-const flash      = require("connect-flash");
+// const flash      = require("connect-flash");
 const passport = require('passport')
 const cors = require('cors');   
 
@@ -91,8 +91,7 @@ app.use(session({
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 })
 }))
-app.use(flash());
-// require('./passport')(app);
+
 
 app.use(passport.initialize())
 app.use(passport.session())

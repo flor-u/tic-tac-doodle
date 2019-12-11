@@ -54,10 +54,6 @@ export default class Login extends Component {
             <input type="password" value={password} name="password" required onChange={this.handleChange}/>
             <input type="submit" value="Login"/>
           </form>
-          <Link to="/" onClick={this.logoutUser}>
-            Logout
-          
-        </Link>
         </div>
     )
   }

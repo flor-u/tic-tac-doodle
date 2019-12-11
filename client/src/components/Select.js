@@ -7,29 +7,27 @@ export default class Select extends Component {
     super(props);
     this.authService = new AuthService();
   }
-
-  state = {
-    username: '',
-    password: ''
+  handleChange = (e) => {
+  
+    const { name, value } = e.target;
+    // this.setState({[name]:value})
+    this.props.setCategory({[name]:value})
+    
   }
   render() {
     return (
       <div>
-        {/* <button>
-          <Link to='/choose-game'>
-            public
-          </Link>
-        </button> */}
-        <button>
-          <Link to='/draw'>
-            Draw!
-          </Link>
-        </button>
-
-        <Link to='/' onClick={this.logoutUser}>
-          Logout
-        </Link>
+      <h3>Game type</h3>
+      <button type='button' value="group" name="gameType" 
+      onClick={this.handleChange}>
+      Group
+      </button>
+       <button type='button' value="solo" name="gameType" 
+      onClick={this.handleChange}
+      >Solo</button>
+        <Link to='/draw'>Go</Link>
       </div>
+    
     );
   }
 }
