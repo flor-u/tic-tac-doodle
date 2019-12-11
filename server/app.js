@@ -29,19 +29,23 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-const whitelist = ['http://localhost:3000']
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  },
-  credentials: true
-}
+// const whitelist = ['http://localhost:3000', 'http://localhost:4000']
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   },
+//   credentials: true
+// }
+// app.use(cors(corsOptions));
+app.use(cors({
+  credentials: true,
+  origin: ['http://localhost:3000']
+}));
 
-app.use(cors(corsOptions));
 
 // Express View engine setup
 
@@ -94,7 +98,7 @@ app.use(passport.initialize())
 app.use(passport.session())
     
 
-const index = require('./routes/index');
+const index = require('./routes');
 app.use('/', index);
       
 
