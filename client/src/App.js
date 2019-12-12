@@ -13,8 +13,8 @@ import Login from "./components/Login";
 
 import Select from "./components/Select";
 import Choose from "./components/Choose";
-import Canvas from "./components/Canvas";
 import Navigation from "./components/NavBar";
+import Draw from "./components/Draw";
 
 
 
@@ -26,7 +26,7 @@ class App extends React.Component {
 
   state = {
     user: null,
-    category: "", //from what list the user will be drawing
+    category: "easy", //from what list the user will be drawing
     gameType: "" //playing solo or in group
   };
 
@@ -58,8 +58,6 @@ class App extends React.Component {
     console.log(e)
     // const {name, value} = e;
     this.setState(e);
-    // this.setState({ category: e });
-    console.log(this.state)
   };
 
   // componentDidMount() {
@@ -81,7 +79,7 @@ class App extends React.Component {
             <Route exact path='/signup' render={match => <Access {...match} setUser={this.setUser} />} />
             <Route exact path='/select' render={match => <Select {...match} setCategory={e=>this.handleChange(e)}  />} />
             <Route exact path='/choose-game' render={match => <Choose {...match} setCategory={e=>this.handleChange(e)}  />} />
-            <Route exact path='/draw' render={match => <Canvas {...match} setUser={this.setUser}  />} />
+            <Route exact path='/draw' render={match => <Draw {...match} setUser={this.setUser} appState={this.state} />} />
           </Switch>
         )}
         {!user && (

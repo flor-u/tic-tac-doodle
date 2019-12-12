@@ -26,7 +26,7 @@ class Navigation extends Component {
 
             // this.props.loggedInUser ?
 
-                        <Nav className="mr-auto">
+                        <Nav>
                             <Nav.Link as="li"><Link to="/">Home</Link></Nav.Link>
                             <Nav.Link as="li"><Link to="/profile">Profile</Link></Nav.Link>
                             <Nav.Link as="li"><Link to="/"  onClick={this.logoutUser}>Logout</Link></Nav.Link>

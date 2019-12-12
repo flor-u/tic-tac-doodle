@@ -27,7 +27,6 @@ export default class Choose extends Component {
 // }
 
     render() {
-        console.log(this.state)
         return (
             <div>
             <div>

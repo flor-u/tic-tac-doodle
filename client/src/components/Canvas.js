@@ -26,8 +26,8 @@ export default class Canvas extends Component {
     }
 
     if (this.state.erased) {
-        let to_save = p5.get(0, 0, 800, 450); 
-to_save.save("saved_name.png");
+//         let to_save = p5.get(0, 0, 800, 450); 
+// to_save.save("saved_name.png");
       p5.clear();
       p5.setup();
       this.setState({ erased: false });
