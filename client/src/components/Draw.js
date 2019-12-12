@@ -10,31 +10,43 @@ export default class Draw extends Component {
     this.state = {
       game: { ...this.props.appState },
       words: [...Words],
-      timeFinish: false
+      timeFinish: false,
+      word:''
     };
-    // console.log(this.state.words);
+    console.log()
   }
+
   wordList = () => {
-    let category = [...this.state.words[0][this.state.game.category]]; //array containing 100 words of selected category
+    let category = [...this.state.words[0][this.props.appState.category]]; //array containing 100 words of selected category
     let word = category[Math.floor(Math.random()*category.length)];
-    // const shuffled = category.sort(() => 0.5 - Math.random());//shuffles the array's elemnts
-    // let selected = shuffled.slice(0, 10);// Get sub-array of first 10 elements after shuffled
-    console.log(word)
+//     // const shuffled = category.sort(() => 0.5 - Math.random());//shuffles the array's elemnts
+//     // let selected = shuffled.slice(0, 10);// Get sub-array of first 10 elements after shuffled
+    this.setState({'word': word});
   };
 
-  handleChange = e => {
-    console.log(e);
-    // const {name, value} = e;
-    this.setState(e);
+  handleChange = data => {
+    // console.log(data);
+    this.setNewRound();
+    this.setState(data);
+
   };
+
+  componentDidMount(){
+      this.wordList()
+      this.setNewRound()
+  }
+
+  setNewRound(){
+    this.wordList()
+
+  }
 
   render() {
-    this.wordList();
     return (
       <React.Fragment>
-      {/* <Clock></Clock> */}
-        <CountDown></CountDown>
-        <div className='words'></div>
+      {/* <Clock finishTime={data =>this.handleChange(data)}></Clock> */}
+        <CountDown finishTime={data =>this.handleChange(data)}></CountDown>
+        <h4 className='words'>{this.state.word}</h4>
         <Canvas></Canvas>
       </React.Fragment>
     );

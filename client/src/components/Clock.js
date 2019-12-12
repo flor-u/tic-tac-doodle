@@ -6,15 +6,21 @@ import Countdown, { zeroPad } from "react-countdown-now";
 export default class Clock extends Component {
   constructor(props) {
     super(props);
+    this.state={
+completed: false,
+controlled:true
+    }
   }
-  // Random component
+  
   
 
   // Renderer callback with condition
   renderer = ({ minutes, seconds, completed }) => {
     if (completed) {
       // Render a complete state
-      return <span>You are good to go!</span>;
+      // this.setState({completed:false})
+    //  this.props.finishTime(true)
+      return <span>Time is up!</span>;
     } else {
       // Render a countdown
       return (

@@ -26,8 +26,8 @@ class App extends React.Component {
 
   state = {
     user: null,
-    category: "easy", //from what list the user will be drawing
-    gameType: "" //playing solo or in group
+    category: '', //from what list the user will be drawing
+    gameType: '' //playing solo or in group
   };
 
   //user methods//
