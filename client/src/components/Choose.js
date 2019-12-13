@@ -17,14 +17,9 @@ export default class Choose extends Component {
     const { name, value } = e.target;
     // this.setState({[name]:value})
     this.props.setCategory({[name]:value})
-    
-    
+
   }
-//   sendChangeToApp= (e) => {
-//       console.log(e)
-//     const { name, value } = e;
-//     return this.props.changeApp(name,value)
-// }
+
 
     render() {
         return (

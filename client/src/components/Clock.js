@@ -8,7 +8,6 @@ export default class Clock extends Component {
     super(props);
     this.state={
 completed: false,
-controlled:true
     }
   }
   
@@ -32,6 +31,6 @@ controlled:true
   };
 
   render() {
-    return <Countdown date={Date.now() + 5000} renderer={this.renderer} />;
+    return <Countdown date={Date.now() + 5000} renderer={this.renderer} controlled={true}/>;
   }
 }

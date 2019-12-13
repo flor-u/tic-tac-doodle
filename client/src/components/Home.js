@@ -7,9 +7,13 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <h1>Home</h1>
-                <button><Link to='/login'>
-                Play
+                <h1>Here</h1>
+                <h3> i will explain how the game works</h3>
+                <button><Link to='/signup'>
+                Sign Up
+          </Link></button>
+          <button><Link to='/login'>
+                Log In
           </Link></button>
             </div>
         )

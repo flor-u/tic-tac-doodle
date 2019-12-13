@@ -1,16 +1,21 @@
 import React, { Component } from "react";
 import Sketch from "react-p5";
+// import {toBlob} from "canvas-to-blob"
 
 export default class Canvas extends Component {
   constructor() {
     super();
     this.state = {
-      erased: false
+      erased: false,
+      serializedCanvas: null
     };
   }
 
   setup = p5 => {
-    p5.createCanvas(800, 450);
+    this.canvas = p5.createCanvas(800, 450);
+    
+
+    
     p5.background(255);
     p5.strokeWeight(6);
     // p5.stroke(234);
@@ -21,6 +26,13 @@ export default class Canvas extends Component {
       let line=[];
     if (p5.mouseIsPressed === true) {
      line.push(p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY));
+    //  console.log(this.canvas)
+
+    this.canvas.elt.toBlob(function(blob) {
+     
+      console.log(blob)
+    })
+
     //  console.log(line);
     //  console.log(line.length)
     }

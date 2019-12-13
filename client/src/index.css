@@ -1,14 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,900|Nanum+Pen+Script&display=swap');
+
 body {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: slategray;
+  background-color: #fffffd;
   margin: 0;
-  font-family: Monaco, Consolas, 'Courier New',
-  monospace;
-  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
-  font-size: 10px;
+  /* font-family: 'Montserrat', sans-serif; */
+/* font-family: 'Nanum Pen Script', cursive; */
+  font-size: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
@@ -16,8 +17,9 @@ body {
 }
 
 h1{
-  color: whitesmoke;
+  color: rgb(0, 0, 0);
   font-size: 3rem;
+  font-family: 'Nanum Pen Script', cursive;
 }
 
 code {

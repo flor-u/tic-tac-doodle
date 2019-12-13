@@ -8,7 +8,7 @@ import { Navbar, Nav } from 'react-bootstrap'
 
 import Home from "./components/Home";
 
-import Access from "./components/Access";
+import Signup from "./components/Signup";
 import Login from "./components/Login";
 
 import Select from "./components/Select";
@@ -26,8 +26,8 @@ class App extends React.Component {
 
   state = {
     user: null,
-    category: '', //from what list the user will be drawing
-    gameType: '' //playing solo or in group
+    category: 'easy', //from what list the user will be drawing
+    gameType: 'solo' //playing solo or in group
   };
 
   //user methods//
@@ -71,12 +71,13 @@ class App extends React.Component {
     return (
       <div className='App'>
         {/* <header className="App-header"> */}
-        <Navigation loggedInUser={this.state} setUser={this.setUser} setCategory={e=>this.handleChange(e)}/>
+        {/* <Navigation loggedInUser={this.state} setUser={this.setUser} setCategory={e=>this.handleChange(e)}/> */}
         {user && (
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/login' render={match => <Login {...match} setUser={this.setUser}  />} />
-            <Route exact path='/signup' render={match => <Access {...match} setUser={this.setUser} />} />
+            <Route exact path='/signup' render={match => <Signup {...match} setUser={this.setUser} />} />
+            
             <Route exact path='/select' render={match => <Select {...match} setCategory={e=>this.handleChange(e)}  />} />
             <Route exact path='/choose-game' render={match => <Choose {...match} setCategory={e=>this.handleChange(e)}  />} />
             <Route exact path='/draw' render={match => <Draw {...match} setUser={this.setUser} appState={this.state} />} />
@@ -86,7 +87,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' render={match => <Home {...match} setUser={this.setUser} />} />
             <Route exact path='/login' render={match => <Login {...match} setUser={this.setUser}  />} />
-            <Route exact path='/signup' render={match => <Access {...match} setUser={this.setUser}  />} />
+            <Route exact path='/signup' render={match => <Signup {...match} setUser={this.setUser}  />} />
           </Switch>
         )}
       </div>
