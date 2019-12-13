@@ -19,6 +19,7 @@ completed: false,
       // Render a complete state
       // this.setState({completed:false})
     //  this.props.finishTime(true)
+      this.props.onFinish()
       return <span>Time is up!</span>;
     } else {
       // Render a countdown
@@ -31,6 +32,6 @@ completed: false,
   };
 
   render() {
-    return <Countdown date={Date.now() + 5000} renderer={this.renderer} controlled={true}/>;
+    return <Countdown date={Date.now() + 2000} renderer={this.renderer} />;
   }
 }

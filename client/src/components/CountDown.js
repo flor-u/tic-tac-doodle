@@ -69,15 +69,22 @@ export default class CountDown extends React.Component {
     if (this.state.seconds === 0) {
       clearInterval(this.timer);
       console.log(this.state);
-      this.props.finishTime({ timeFinish: this.state.timeFinish });
+     ;
       this.timer=0;
-      this.setState({...this.state,  seconds: 5});
-      // this.setState({ seconds: 5, timeFinish: true });
-
+      // this.setState({...this.state,  seconds: 5});
+      this.setState({ seconds: 5, timeFinish: true });
+      this.props.finishTime({ timeFinish: this.state.timeFinish })
       console.log(this.state, this.timer);
       
     }
   }
+
+//   componentDidUpdate(){
+//     if(this.state.timeFinish === true){
+//       console.log('e')
+//   this.setState({timeFinish: false})
+//     }
+// }
 
   render() {
     return (

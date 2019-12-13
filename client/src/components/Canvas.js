@@ -30,7 +30,7 @@ export default class Canvas extends Component {
 
     this.canvas.elt.toBlob(function(blob) {
      
-      console.log(blob)
+      // console.log(blob)
     })
 
     //  console.log(line);
