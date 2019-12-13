@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Canvas from "./Canvas";
 import CountDown from "./CountDown";
 import Clock from "./Clock";
+import io from 'socket.io-client'
 
 export default class Draw extends Component {
   constructor(props) {
@@ -13,7 +14,24 @@ export default class Draw extends Component {
       word: ""
     };
     console.log(props);
+
+    this.socket = io('http://192.168.96.69:4000')
+
+    // Creamos un ".on", el cual escucha si el server envia una lista de usuarios 
+    this.socket.on('list', list => {
+      console.log(this.socket)
+      this.setState({...this.state, userList: list})
+    })
   }
+  updateUserList=(name)=>{
+    if(name.trim() !== ''){
+      this.setState({...this.state, user: name},()=>{
+        this.socket.emit('newUser', name)
+        // this.props.history.push('/chat')
+      })
+    }
+  }
+
 
   onFinish() {
     this.setState({

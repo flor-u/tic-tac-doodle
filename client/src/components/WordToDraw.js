@@ -32,7 +32,8 @@ export default class WordToDraw extends Component {
     render() {
         return (
             <div>
-                <h4 className='words'>{this.state.word}</h4>
+            <p>You have 20 seconds to draw </p>
+                <h2 className='words'>{this.state.word}</h2>
                 <Link to='/draw' game={this.state}>Go</Link>
             </div>
         )

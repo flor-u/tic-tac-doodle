@@ -44,3 +44,34 @@ server.on('error', error => {
 server.listen(process.env.PORT, () => {
   console.log(`Listening on http://localhost:${process.env.PORT}`);
 });
+
+const io = require('socket.io').listen(server)
+let userList = []
+io.on("connection", socket => {
+  console.log("socket connected");
+
+  socket.on("newUser", user => {
+    console.log(`${user} connected`);
+    userList.push(user);
+    socket.emit("list", userList);
+    socket.broadcast.emit("list", userList);
+  });
+
+  // socket.on("messageSent", message => {
+  //   console.log(message);
+  //   socket.emit("newMessage", message);
+  //   socket.broadcast.emit("newMessage", message);
+  // });
+
+  // socket.on("newMovie", movie => {
+  //   Movie.create(movie)
+  //   .then(()=>{
+  //     return Movie.find()
+  //   })
+  //   .then(movies=>{
+  //     socket.emit('moviesList', movies)
+  //     socket.broadcast.emit('moviesList', movies)
+  //   })
+  // });
+
+});

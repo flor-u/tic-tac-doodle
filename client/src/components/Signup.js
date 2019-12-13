@@ -53,9 +53,9 @@ export default class Access extends Component {
       <div>
       <h1>Sign Up</h1>
         <form onSubmit={this.handleSignUp}>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username">username </label>
           <input type="text" name="username" value={username} required onChange={this.handleChange}/>
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password">password </label>
           <input type="password" value={password} name="password" required onChange={this.handleChange}/>
           <input type="submit" value="Create account"/>
         </form>

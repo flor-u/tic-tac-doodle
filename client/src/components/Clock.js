@@ -11,14 +11,8 @@ completed: false,
     }
   }
   
-  
-
-  // Renderer callback with condition
   renderer = ({ minutes, seconds, completed }) => {
     if (completed) {
-      // Render a complete state
-      // this.setState({completed:false})
-    //  this.props.finishTime(true)
       this.props.onFinish()
       return <span>Time is up!</span>;
     } else {
@@ -32,6 +26,6 @@ completed: false,
   };
 
   render() {
-    return <Countdown date={Date.now() + 2000} renderer={this.renderer} />;
+    return <Countdown date={Date.now() + 20000} renderer={this.renderer} />;
   }
 }
