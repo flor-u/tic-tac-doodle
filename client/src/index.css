@@ -7,7 +7,7 @@ body {
   flex-direction: column;
   background-color: #fffffd;
   margin: 0;
-  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Montserrat', sans-serif;
 /* font-family: 'Nanum Pen Script', cursive; */
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
@@ -25,4 +25,22 @@ h1{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.chatBox{
+  background-color: orange;
+  padding-top: 10px;
+  margin-top: 50px;
+  height: 10vh;
+  overflow-y: scroll;
+  /* border-radius: .25rem; */
+}
+/* 
+.canvas{
+  display: block;
+  position: absolute;
+} */
+
+script{
+  display: block;
 }

@@ -4,6 +4,8 @@ import Canvas from "./Canvas";
 import CountDown from "./CountDown";
 import Clock from "./Clock";
 import io from 'socket.io-client'
+import GuessCanvas from "./GuessCanvas";
+import { Row, ListGroup, Col, Container} from 'react-bootstrap'
 
 export default class Draw extends Component {
   constructor(props) {
@@ -11,7 +13,8 @@ export default class Draw extends Component {
     this.state = {
       game: { ...this.props.appState },
       newRound: false,
-      word: ""
+      // word: "",
+      messages: []
     };
     console.log(props);
 
@@ -22,6 +25,12 @@ export default class Draw extends Component {
       console.log(this.socket)
       this.setState({...this.state, userList: list})
     })
+
+    this.socket.on("newMessage", message => {
+      let mess = this.state.messages;
+      mess.push(message);
+      this.setState({ ...this.state, messages: mess });
+    });
   }
   updateUserList=(name)=>{
     if(name.trim() !== ''){
@@ -32,6 +41,16 @@ export default class Draw extends Component {
     }
   }
 
+  sendMessage = text => {
+    if(text.trim()==="")return
+    let mess = {
+      text: text,
+      user: this.props.user
+    };
+    // Este ".emit" le envia al server los mensajes que escribamos
+    // El server se encargará de propagarlos
+    this.socket.emit("messageSent", mess);
+  };
 
   onFinish() {
     this.setState({
@@ -40,6 +59,10 @@ export default class Draw extends Component {
     });
   }
 
+  // componentDidUpdate=()=>{
+  //   document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight
+  // }
+
   render() {
     if (this.state.newRound) {
       return <Redirect to='/word-to-draw/' />;
@@ -47,9 +70,39 @@ export default class Draw extends Component {
     return (
       <React.Fragment>
         <Clock onFinish={() => this.onFinish()}></Clock>
+        <div>
         {/* <CountDown finishTime={data =>this.handleChange(data)}></CountDown> */}
+        <Canvas props={this.props}></Canvas>
+        </div>
+              <Col sm={6} id="userList">
+            <h5>ACTIVE USERS:</h5>
+            {/* <ListGroup>
+              {this.props.list.map((elem, idx) => {
+                return elem===this.props.user ?
+                  <ListGroup.Item key={idx}><b>{elem}</b></ListGroup.Item>
+                  :
+                  <ListGroup.Item key={idx}>{elem}</ListGroup.Item>
+              })}
+            </ListGroup> */}
+          </Col>
+              <Col sm={6}>
+            <div className="chatBox" id="chatBox">
+              {this.state.messages.map((elem, idx) => {
+                return (
+                  <h6 key={idx}>
+                    {elem.user} : {elem.text}
+                  </h6>
+                );
+              })}
+            </div>
 
-        <Canvas></Canvas>
+            {/* Input para nuevos mensajes */}
+            {/* <div className="textForm">
+              <InputMess info={this.sendMessage}></InputMess>
+            </div> */}
+          </Col>
+
+        {/* <GuessCanvas></GuessCanvas> */}
       </React.Fragment>
     );
   }
