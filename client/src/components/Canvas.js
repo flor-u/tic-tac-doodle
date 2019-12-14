@@ -9,7 +9,7 @@ export default class Canvas extends Component {
       erased: false,
       serializedCanvas: null
     };
-    console.log(this.props.parent)
+    
   }
 
   setup = p5 => {

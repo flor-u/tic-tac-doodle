@@ -6,6 +6,7 @@ import Clock from "./Clock";
 import io from 'socket.io-client'
 import GuessCanvas from "./GuessCanvas";
 import { Row, ListGroup, Col, Container} from 'react-bootstrap'
+import GuessInput from "./GuessInput";
 
 export default class Draw extends Component {
   constructor(props) {
@@ -14,9 +15,11 @@ export default class Draw extends Component {
       game: { ...this.props.appState },
       newRound: false,
       // word: "",
-      messages: []
+      messages: [],
+      userList : [],
+      user: this.props.appState.user.username
     };
-    console.log(props);
+    console.log(this.props.appState.user.username);
 
     this.socket = io('http://192.168.96.69:4000')
 
@@ -32,11 +35,13 @@ export default class Draw extends Component {
       this.setState({ ...this.state, messages: mess });
     });
   }
+
   updateUserList=(name)=>{
     if(name.trim() !== ''){
       this.setState({...this.state, user: name},()=>{
         this.socket.emit('newUser', name)
         // this.props.history.push('/chat')
+        console.log('list', this.state.userList)
       })
     }
   }
@@ -45,7 +50,7 @@ export default class Draw extends Component {
     if(text.trim()==="")return
     let mess = {
       text: text,
-      user: this.props.user
+      user: this.props.appState.user.username
     };
     // Este ".emit" le envia al server los mensajes que escribamos
     // El server se encargará de propagarlos
@@ -59,6 +64,10 @@ export default class Draw extends Component {
     });
   }
 
+  // componentDidMount=()=>{
+  //   this.updateUserList()
+  //   console.log('a')
+  // }
   // componentDidUpdate=()=>{
   //   document.getElementById('chatBox').scrollTop = document.getElementById('chatBox').scrollHeight
   // }
@@ -76,14 +85,14 @@ export default class Draw extends Component {
         </div>
               <Col sm={6} id="userList">
             <h5>ACTIVE USERS:</h5>
-            {/* <ListGroup>
-              {this.props.list.map((elem, idx) => {
-                return elem===this.props.user ?
+            <ListGroup>
+              {this.state.userList.map((elem, idx) => {
+                return elem===this.props.appState.user.username ?
                   <ListGroup.Item key={idx}><b>{elem}</b></ListGroup.Item>
                   :
                   <ListGroup.Item key={idx}>{elem}</ListGroup.Item>
               })}
-            </ListGroup> */}
+            </ListGroup>
           </Col>
               <Col sm={6}>
             <div className="chatBox" id="chatBox">
@@ -97,9 +106,10 @@ export default class Draw extends Component {
             </div>
 
             {/* Input para nuevos mensajes */}
-            {/* <div className="textForm">
-              <InputMess info={this.sendMessage}></InputMess>
-            </div> */}
+            <div className="textForm">
+            
+              <GuessInput info={this.sendMessage}></GuessInput>
+            </div>
           </Col>
 
         {/* <GuessCanvas></GuessCanvas> */}

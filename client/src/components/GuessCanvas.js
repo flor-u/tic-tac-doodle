@@ -12,7 +12,7 @@ export default class GuessCanvas extends Component {
   }
 
   setup = p5 => {
-    this.canvas = p5.createCanvas(800, 450);
+    this.canvas = p5.createCanvas(800, 450).parent('canvas');
     p5.background(230);
     p5.strokeWeight(6);
     // p5.stroke(234);
@@ -53,11 +53,14 @@ export default class GuessCanvas extends Component {
   render() {
     // console.log(this.state.erased);
     return (
-      <div className='canvas'>
-      <h1>Draw!</h1>
-        <Sketch setup={this.setup} draw={this.draw} />
-        {/* <button onClick={e => this.erase(e)}>Erase</button> */}
-      </div>
+        <React.Fragment>
+        <div>
+          <h1>Guess!</h1>
+          <div id='canvas'>
+          <Sketch setup={this.setup} draw={this.draw}/>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 }
