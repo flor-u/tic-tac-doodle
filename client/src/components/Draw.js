@@ -74,7 +74,7 @@ export default class Draw extends Component {
 
   render() {
     if (this.state.newRound) {
-      return <Redirect to='/word-to-draw/' />;
+      return <Redirect to='/word-to-draw' />;
     }
     return (
       <React.Fragment>
@@ -83,7 +83,8 @@ export default class Draw extends Component {
         {/* <CountDown finishTime={data =>this.handleChange(data)}></CountDown> */}
         <Canvas props={this.props}></Canvas>
         </div>
-              <Col sm={6} id="userList">
+              <div className='bottom'>
+              <div>
             <h5>ACTIVE USERS:</h5>
             <ListGroup>
               {this.state.userList.map((elem, idx) => {
@@ -93,8 +94,8 @@ export default class Draw extends Component {
                   <ListGroup.Item key={idx}>{elem}</ListGroup.Item>
               })}
             </ListGroup>
-          </Col>
-              <Col sm={6}>
+            </div>
+            <div>
             <div className="chatBox" id="chatBox">
               {this.state.messages.map((elem, idx) => {
                 return (
@@ -110,7 +111,9 @@ export default class Draw extends Component {
             
               <GuessInput info={this.sendMessage}></GuessInput>
             </div>
-          </Col>
+            </div>
+            </div>
+          {/* </Col> */}
 
         {/* <GuessCanvas></GuessCanvas> */}
       </React.Fragment>

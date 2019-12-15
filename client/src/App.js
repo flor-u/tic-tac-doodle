@@ -89,7 +89,7 @@ class App extends React.Component {
             <Route exact path='/word-to-draw' render={match => <WordToDraw {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
             {/* <Route exact path='/select' render={match => <Select {...match} setCategory={e=>this.handleChange(e)}  />} />
             <Route exact path='/choose-game' render={match => <Choose {...match} setCategory={e=>this.handleChange(e)}  />} /> */}
-            <Route exact path='/draw' render={match => <Draw {...match} setUser={this.setUser} appState={this.state} />} />
+            <Route exact path='/draw' render={match => <Draw {...match} setUser={this.setUser} appState={this.state}/>} />
           </Switch>
         )}
         {!user && (

@@ -30,18 +30,7 @@ export default class ChooseGame extends Component {
             Hard
           </button>
         </div>
-        <div>
-          <h3>Theme</h3>
-          <button type='button' value='objects' name='category' onClick={this.handleChange}>
-            Objects
-          </button>
-          <button type='button' value='persons' name='category' onClick={this.handleChange}>
-            Persons
-          </button>
-          <button type='button' value='actions' name='category' onClick={this.handleChange}>
-            Actions
-          </button>
-        </div>
+        
         <div>
           <h3>Game type</h3>
           <button type='button' value='group' name='gameType' onClick={this.handleChange}>

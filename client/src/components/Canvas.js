@@ -55,10 +55,10 @@ export default class Canvas extends Component {
       <React.Fragment>
         <div>
           <h1>Draw!</h1>
+          <button onClick={e => this.erase(e)}>X</button>
           <div id='canvas'>
           <Sketch setup={this.setup} draw={this.draw}/>
           </div>
-          <button onClick={e => this.erase(e)}>Erase</button>
         </div>
       </React.Fragment>
     );

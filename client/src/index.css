@@ -30,7 +30,7 @@ code {
 .chatBox{
   background-color: orange;
   padding-top: 10px;
-  margin-top: 50px;
+  margin-top: 10px;
   height: 10vh;
   overflow-y: scroll;
   /* border-radius: .25rem; */
@@ -43,4 +43,9 @@ code {
 
 script{
   display: block;
+}
+
+.bottom{
+  display: flex;
+  justify-content: space-evenly;
 }
