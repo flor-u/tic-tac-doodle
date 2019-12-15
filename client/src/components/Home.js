@@ -9,10 +9,10 @@ export default class Home extends Component {
             <div>
                 <h1>Here</h1>
                 <h3> i will explain how the game works</h3>
-                <button><Link to='/signup'>
+                <button className="btn cta bg"><Link to='/signup'>
                 Sign Up
           </Link></button>
-          <button><Link to='/login'>
+          <button className="btn cta bg" ><Link to='/login'>
                 Log In
           </Link></button>
             </div>

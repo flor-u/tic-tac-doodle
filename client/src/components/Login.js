@@ -52,7 +52,7 @@ export default class Login extends Component {
             <input type="text" name="username" value={username} required onChange={this.handleChange}/>
             <label htmlFor="password">password </label>
             <input type="password" value={password} name="password" required onChange={this.handleChange}/>
-            <input type="submit" value="Login"/>
+            <button className="btn cta bg" type="submit" value="Login">Login</button>
           </form>
         </div>
     )

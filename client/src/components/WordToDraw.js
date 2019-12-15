@@ -34,7 +34,7 @@ export default class WordToDraw extends Component {
             <div>
             <p>You have 20 seconds to draw </p>
                 <h2 className='words'>{this.state.word}</h2>
-                <Link to='/draw' game={this.state}>Go</Link>
+                <Link className="btn cta bg" to='/draw' game={this.state}>Go</Link>
             </div>
         )
     }

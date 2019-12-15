@@ -57,7 +57,7 @@ export default class Access extends Component {
           <input type="text" name="username" value={username} required onChange={this.handleChange}/>
           <label htmlFor="password">password </label>
           <input type="password" value={password} name="password" required onChange={this.handleChange}/>
-          <input type="submit" value="Create account"/>
+          <button className="btn cta bg" type="submit" value="Create account">Create account</button>
         </form>
       </div>
     )

@@ -40,7 +40,7 @@ export default class ChooseGame extends Component {
             Solo
           </button>
         </div>
-        <Link to='/word-to-draw'>Go</Link>
+        <Link className="btn cta bg" to='/word-to-draw'>Go</Link>
       </div>
     );
   }
