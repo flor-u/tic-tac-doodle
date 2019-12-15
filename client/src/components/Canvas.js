@@ -24,10 +24,10 @@ export default class Canvas extends Component {
     let line = [];
     if (p5.mouseIsPressed === true) {
       line.push(p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY));
-      //  console.log(this.canvas)
+      //  console.log(line)
 
       // this.canvas.elt.toBlob(function(blob) {
-        // console.log(blob)
+      //   console.log(blob)
       // });
 
       //  console.log(line);

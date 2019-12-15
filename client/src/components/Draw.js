@@ -21,7 +21,7 @@ export default class Draw extends Component {
     };
     console.log(this.props.appState.user.username);
 
-    this.socket = io('http://192.168.96.69:4000')
+    this.socket = io('http://localhost:4000')
 
     // Creamos un ".on", el cual escucha si el server envia una lista de usuarios 
     this.socket.on('list', list => {

@@ -36,7 +36,6 @@ export default class GuessInput extends Component {
             </Form.Group>
     
             <Button
-              variant="primary"
               type="submit"
               onClick={(e) => {
                 this.handleSubmit(e);
