@@ -1,17 +1,22 @@
 import React, { Component } from "react";
 import Sketch from "react-p5";
 // import {toBlob} from "canvas-to-blob"
+import io from 'socket.io-client'
 
 export default class Canvas extends Component {
   constructor(props) {
     super(props);
     this.state = {
       erased: false,
-      serializedCanvas: null
+      serializedCanvas: null,
+      
     };
-    
+    let socket = this.props.socket
+    console.log(this.props.socket)
   }
 
+  // socket.on('drawing', this.draw);
+  
   setup = p5 => {
     this.canvas = p5.createCanvas(800, 350).parent('canvas');
     p5.background(255);
@@ -24,15 +29,25 @@ export default class Canvas extends Component {
     let line = [];
     if (p5.mouseIsPressed === true) {
       line.push(p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY));
-      //  console.log(line)
+      //  console.log(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY)
+      // console.log(this.canvas.width, this.canvas.height)
 
+      let w = this.canvas.width;
+    let h = this.canvas.height;
+      this.socket.emit('drawing', {
+        x0: p5.pmouseX / w,
+        y0: p5.pmouseY / h,
+        x1: p5.mouseX / w,
+        y1: p5.mouseY / h,
+      });
+    }
       // this.canvas.elt.toBlob(function(blob) {
       //   console.log(blob)
       // });
 
       //  console.log(line);
       //  console.log(line.length)
-    }
+    
 
     if (this.state.erased) {
       //         let to_save = p5.get(0, 0, 800, 450);

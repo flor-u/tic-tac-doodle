@@ -81,7 +81,7 @@ export default class Draw extends Component {
         <Clock onFinish={() => this.onFinish()}></Clock>
         <div>
         {/* <CountDown finishTime={data =>this.handleChange(data)}></CountDown> */}
-        <Canvas props={this.props}></Canvas>
+        <Canvas props={this.props} socket={this.socket}></Canvas>
         </div>
               <div className='bottom'>
               <div>
