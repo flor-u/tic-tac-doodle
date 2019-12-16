@@ -1,12 +1,14 @@
+require('dotenv').config();
+
 const express = require("express");
 const passport = require('passport');
 const router = express.Router();
 const User = require("../../models/User");
-
+const uploader = require('../../configs/cloudinary.configs')
 // Bcrypt to encrypt passwords
 const bcrypt = require("bcrypt");
 const bcryptSalt = 3;
-const words=require('../../../client/src/words.json')
+const fs = require("fs")
 
 
 // router.get("/login", (req, res, next) => {
@@ -165,16 +167,27 @@ router.get('/loggedin', (req, res, next) => {
   });
 });
 
-// router.post('/upload', uploader.single('image'), (req, res) => {
-//   if (req.file) {
-//     res.status(200).json({
-//       secure_url: req.file.secure_url
-//     })
-//   } else {
-//     res.status(500).json({
-//       message: 'Something went wrong'
-//     });
-//   }
-// });
+router.post('/upload', uploader.single('image'), (req, res) => {
+  console.log(req.body)
+  console.log(req.file)
+  // req.body.image.replace(/^data:image\/png;base64,/, '');
+//   fs.writeFile("/Users/florurbinati/Desktop/ironhack/draw/server/routes/api/borrar.png", req.body.image.replace(/^data:image\/png;base64,/, ''), 'base64', function(err) {
+//   if (err) throw err;
+// }); 
+//esto convuerte a png, pero me lo guarda en local
+
+// fs.writeFile("/Users/florurbinati/Desktop/ironhack/draw/server/routes/api/borrar.txt",req.body.image, function (err, data) {
+// console.log("done")
+// })
+  if (req.file) {
+    res.status(200).json({
+      secure_url: req.file.secure_url
+    })
+  } else {
+    res.status(500).json({
+      message: 'Something went wrong'
+    });
+  }
+});
 
 module.exports = router;

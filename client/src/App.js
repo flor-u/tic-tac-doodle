@@ -54,13 +54,13 @@ class App extends React.Component {
     }
   };
 
-  wordList = () => {
-    let category = [...this.state.words[0][this.props.appState.category]]; //array containing 100 words of selected category
-    let word = category[Math.floor(Math.random() * category.length)];
-    //     // const shuffled = category.sort(() => 0.5 - Math.random());//shuffles the array's elemnts
-    //     // let selected = shuffled.slice(0, 10);// Get sub-array of first 10 elements after shuffled
-    this.setState({ word: word });
-  };
+  // wordList = () => {
+  //   let category = [...this.state.words[0][this.props.appState.category]]; //array containing 100 words of selected category
+  //   let word = category[Math.floor(Math.random() * category.length)];
+  //   //     // const shuffled = category.sort(() => 0.5 - Math.random());//shuffles the array's elemnts
+  //   //     // let selected = shuffled.slice(0, 10);// Get sub-array of first 10 elements after shuffled
+  //   this.setState({ word: word });
+  // };
 
   handleChange = e => {
     console.log(e);
@@ -69,7 +69,7 @@ class App extends React.Component {
   };
 
   // componentDidMount() {
-  //   this.fetchUser();
+  //   this.wordList();
   // }
 
   render() {

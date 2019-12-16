@@ -17,7 +17,7 @@ export default class WordToDraw extends Component {
 
 
     wordList = () => {
-        let category = [...this.state.words[0][this.props.appState.category]]; //array containing 100 words of selected category
+        let category = [...this.state.words[0].medium]; //array containing 100 words of selected category
         let word = category[Math.floor(Math.random()*category.length)];
     //     // const shuffled = category.sort(() => 0.5 - Math.random());//shuffles the array's elemnts
     //     // let selected = shuffled.slice(0, 10);// Get sub-array of first 10 elements after shuffled
@@ -31,10 +31,12 @@ export default class WordToDraw extends Component {
 
     render() {
         return (
-            <div>
-            <p>You have 20 seconds to draw </p>
-                <h2 className='words'>{this.state.word}</h2>
-                <Link className="btn cta bg" to='/draw' game={this.state}>Go</Link>
+            <div className='cel center' >
+            <div className='flex center'>
+            <h3>You have 20 seconds to draw </h3>
+                <h4 className='words'>{this.state.word}</h4>
+                <Link className="btn cta bg yel" to='/draw' game={this.state}>Go</Link>
+            </div>
             </div>
         )
     }

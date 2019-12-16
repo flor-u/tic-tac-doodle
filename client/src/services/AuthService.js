@@ -33,11 +33,12 @@ class AuthService {
     .catch(error => console.error(error))
   }
 
-//   upload = (image) => {
-//     return this.instance.post('/upload', image)
-//     .then(res => Promise.resolve(res.data))
-//     .catch(error => console.error(error))
-//   }
+  upload = (image) => {
+    console.log(image)
+    return this.instance.post('/upload', image)
+    .then(res => Promise.resolve(res.data))
+    .catch(error => console.error(error))
+  }
 
 //   updateProfile = (username, course, campus) => {
 //     return this.service

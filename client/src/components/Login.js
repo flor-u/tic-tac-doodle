@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import AuthService from '../services/AuthService'
 import { Link } from "react-router-dom";
-// import { Form, Card, CardTitle } from '../../styles/card';
+
+
 
 export default class Login extends Component {
   constructor(props) {
@@ -45,13 +46,13 @@ export default class Login extends Component {
    console.log(this.state)
     const { username, password } = this.state;
     return (
-        <div>
-        <h1>Login</h1>
-          <form onSubmit={this.handleLogin}>
+        <div className='flex'>
+        <h2>Login</h2>
+          <form onSubmit={this.handleLogin} className='flex'>
             <label htmlFor="username">username </label>
-            <input type="text" name="username" value={username} required onChange={this.handleChange}/>
+            <input class='margin-bottom' type="text" name="username" value={username} required onChange={this.handleChange}/>
             <label htmlFor="password">password </label>
-            <input type="password" value={password} name="password" required onChange={this.handleChange}/>
+            <input class='margin-bottom' type="password" value={password} name="password" required onChange={this.handleChange}/>
             <button className="btn cta bg" type="submit" value="Login">Login</button>
           </form>
         </div>
