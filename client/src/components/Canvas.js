@@ -67,13 +67,11 @@ export default class Canvas extends Component {
     //  console.log(line.length)
 
     if (this.state.erased) {
-      // let file = this.canvas.elt.toDataURL("image/png").split(",")[1];
-      // let image = new File([file], "image.png", { type: "image/png" });
-      
-      
-      // console.log(image);
-      // this.authService.upload(image);
-      this.fileUpload(this.canvas.elt)
+      let image = this.canvas.elt.toDataURL("image/png").split(",")[1];
+      let data = new File([image], "image.png", { type: "image/png" });
+     
+      console.log({image});
+      this.authService.upload({image});
 
       p5.clear();
       p5.setup();

@@ -167,27 +167,29 @@ router.get('/loggedin', (req, res, next) => {
   });
 });
 
-router.post('/upload', uploader.single('image'), (req, res) => {
-  console.log(req.body)
-  console.log(req.file)
-  // req.body.image.replace(/^data:image\/png;base64,/, '');
-//   fs.writeFile("/Users/florurbinati/Desktop/ironhack/draw/server/routes/api/borrar.png", req.body.image.replace(/^data:image\/png;base64,/, ''), 'base64', function(err) {
-//   if (err) throw err;
+router.post('/upload', (req, res) => {
+  console.log(req.user._id)
+  console.log(typeof req.body)
+  console.log(req.body.image)
+ 
+  // let data= req.body.image.replace(/^data:image\/png;base64,/, '')
+//     fs.writeFile("/Users/florurbinati/Desktop/ironhack/draw/server/routes/api/borrar.png", req.body.image.replace(/^data:image\/png;base64,/, ''), 'base64', function(err) {
+//     if (err) throw err;
 // }); 
-//esto convuerte a png, pero me lo guarda en local
+// //esto convierte a png, pero me lo guarda en local
 
 // fs.writeFile("/Users/florurbinati/Desktop/ironhack/draw/server/routes/api/borrar.txt",req.body.image, function (err, data) {
 // console.log("done")
 // })
-  if (req.file) {
-    res.status(200).json({
-      secure_url: req.file.secure_url
-    })
-  } else {
-    res.status(500).json({
-      message: 'Something went wrong'
-    });
-  }
-});
+   User.findByIdAndUpdate(
+    req.user._id,
+    {
+      username: 'flor', $push: 
+      {doodles: req.body.image}
+    },
+    { new: true }
+  ).then(userUpdated => res.json(userUpdated));
+
+})
 
 module.exports = router;
