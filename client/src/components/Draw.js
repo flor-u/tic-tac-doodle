@@ -13,7 +13,6 @@ export default class Draw extends Component {
       word: "",
       user: this.props.appState.user.username
     };
-    console.log(this.props.appState.user.username);
     
   }
 
@@ -34,9 +33,8 @@ export default class Draw extends Component {
       <div className='cel'>
         <Clock onFinish={() => this.onFinish()}></Clock>
         <div>
-        <Canvas props={this.props} ></Canvas>
+        <Canvas props={this.state} ></Canvas>
         </div>
-             
       </div>
     );
   }
