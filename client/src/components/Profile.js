@@ -27,10 +27,12 @@ export default class Profile extends Component {
           {this.state.user.doodles.map((doodle, idx) => {
             console.log(idx)
             return (
-              <div>
+              <div key={idx} >
               
-                {/* <button onClick={(e, user, doodle) => this.deleteDoodle(e, this.state.user, this.props.doodle)}>X</button> */}
-                <Doodle key={idx} doodle={doodle} user={this.state.user} />
+                <button 
+                // onClick={(e, user, doodle) => this.deleteDoodle(e, this.state.user, this.props.doodle)}
+                >X</button>
+                <Doodle doodle={doodle} user={this.state.user} />
               </div>
             );
           })}
