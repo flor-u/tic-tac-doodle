@@ -7,56 +7,58 @@ body {
   flex-direction: column;
   background-color: #fffffd;
   margin: 0;
-  padding:0;
+  padding: 0;
   font-family: 'Montserrat', sans-serif;
-/* font-family: 'Nanum Pen Script', cursive; */
+  /* font-family: 'Nanum Pen Script', cursive; */
   font-size: 20px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
   height: 100vh;
 }
-a{
+
+a {
   text-decoration: none;
-  color: rgb(16,24,50);
+  color: rgb(16, 24, 50);
   font-weight: 500;
   font-size: 1rem;
 }
 
-h1{
+h1 {
   color: #FDED01;
 
   font-family: 'Montserrat', sans-serif;
-font-style: normal;
-font-weight: 900;
-font-size: 5rem;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-font-feature-settings: 'kern' off;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-feature-settings: 'kern'off;
 
 }
 
 h2 {
   color: #FDED01;
   font-family: 'Montserrat', sans-serif;
-font-style: normal;
-font-weight: 900;
-font-size: 3rem;
-letter-spacing: 0.1em;
-text-transform: uppercase;
-font-feature-settings: 'kern' off;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 3rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-feature-settings: 'kern'off;
 
 }
 
-h3{
-  margin-top:0;
-  color: rgb(16,24,50);
-  font-size: 3.6rem;
+h3 {
+  margin-top: 0;
+  color: rgb(16, 24, 50);
+  font-size: 3rem;
   font-family: 'Nanum Pen Script', cursive;
-text-align: center;
+  text-align: center;
+  font-weight: 500;
 }
 
-h4{
+h4 {
   font-size: 2rem;
 }
 
@@ -64,150 +66,167 @@ label {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   text-align: left;
+  margin-bottom: .5rem;
 }
-input[type="text"]{
-  background-color : #C2EFF5; 
+
+input[type="text"] {
+  background-color: #C2EFF5;
 
 }
-.flex{
+
+.flex {
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: space-evenly;
 }
 
-.cel{
-  background-color : #C2EFF5; 
+.cel {
+  background-color: #C2EFF5;
   width: 100vw;
   height: 100vh;
 }
 
-.margin-bottom{
-  background-color: transparent;
+.margin-bottom {
+  background-color: #C2EFF5;
   margin-bottom: 3.5rem;
   height: 2.5rem;
   border: none;
-  border-bottom: 2.4px solid rgb(16,24,50); 
-  
-
+  border-bottom: 2.4px solid rgb(16, 24, 50);
+  width: 20vw;
 }
 
-.chatBox{
-  background-color: orange;
-  padding-top: 10px;
-  margin-top: 10px;
-  height: 10vh;
-  overflow-y: scroll;
-  /* border-radius: .25rem; */
-}
 
-script{
+script {
   display: block;
 }
-.center{
+
+.center {
   justify-content: center;
   align-items: center;
 }
-.bottom{
+
+.bottom {
   display: flex;
   justify-content: space-evenly;
 }
 
 .btn {
-  outline:none;
+  outline: none;
   cursor: pointer;
   display: inline-block;
   letter-spacing: 0.075rem;
-  padding: .8rem 1rem;
+  padding: 1.2rem 1.6rem;
   margin: auto 2rem;
   position: relative;
   align-self: center;
   text-transform: uppercase;
-  border: 3px rgb(16,24,50) solid;
+  border: 3px rgb(16, 24, 50) solid;
   z-index: 1;
-  box-shadow: -0.5rem .5rem transparentize(rgb(16,24,50),1);
+  box-shadow: -0.5rem .5rem transparentize(rgb(16, 24, 50), 1);
   transform-origin: rigth top;
-  transition:all 200ms ease-in-out;
-  /* width: 6rem */
-} 
-.btn::before,::after {
-    display: block;
-    position: absolute;
-    z-index: -1;
-  }
-  
-  .btn::before {
-    content: '';
-    border-image-slice: 1 1 0 1;
-    left: -0.59rem; top: .15rem;
-    width: .3rem;
-    height: 101%;
-    transform: skewY(-45deg);
-    /* border: 3px rgb(16,24,50) solid; */
-  }
-  
-  .btn::after {
-     content: '';
-    border-image-slice: 1 1 1 0;
-    bottom: -0.61rem; right: 0.16rem;
-    width: 101%;
-    height: .3rem;
-    transform: skewX(-45deg);
-    /* border: 3px rgb(16,24,50) solid; */
-  }
-  
-  .btn:active {
-    
-    border-image-slice: 1;
-    background-color: #C2EFF5;
-    background-size: 90%;
-    transform: translate(-0.5rem,0.5rem);
-    /* border: 3px rgb(16,24,50) solid; */
-  }
+  transition: all 200ms ease-in-out;
+  width: 10rem
+}
+
+.btn::before,
+::after {
+  display: block;
+  position: absolute;
+  z-index: -1;
+}
+
+.btn::before {
+  content: '';
+  border-image-slice: 1 1 0 1;
+  left: -0.59rem;
+  top: .15rem;
+  width: .3rem;
+  height: 101%;
+  transform: skewY(-45deg);
+  /* border: 3px rgb(16,24,50) solid; */
+}
+
+.btn::after {
+  content: '';
+  border-image-slice: 1 1 1 0;
+  bottom: -0.61rem;
+  right: 0.16rem;
+  width: 100%;
+  height: .3rem;
+  transform: skewX(-45deg);
+  /* border: 3px rgb(16,24,50) solid; */
+}
+
+.btn:active {
+
+  border-image-slice: 1;
+  /* background-color: #C2EFF5; */
+  background-size: 90%;
+  transform: translate(-0.5rem, 0.5rem);
+  /* border: 3px rgb(16,24,50) solid; */
+}
 
 .cta {
   border-image-slice: 1;
   color: white;
-} 
+}
+
 .cta::before {
-    border-image-slice: 1;
-    left: -0.75rem;
-    top: .15rem;
-  }
-  
-  .cta::after {
-    border-image-slice: 1;
-    bottom: -0.75rem;
-    right: .15rem;
-  }
-  
-  .cta:hover {
-    background:#C2EFF5;
-    border-image-slice: 1;
-  }  
-    
-  .cta:hover::before {
-      height: 101%;
-    }
-    .cta:hover::after {
-      width: 101%;
-    }
+  border-image-slice: 1;
+  left: -0.75rem;
+  top: .15rem;
+}
+
+.cta::after {
+  border-image-slice: 1;
+  bottom: -0.75rem;
+  right: .15rem;
+}
+
+.cta:hover {
+  /* background: #C2EFF5; */
+  border-image-slice: 1;
+}
+
+.cta:hover::before {
+  height: 101%;
+}
+
+.cta:hover::after {
+  width: 100%;
+}
 
 .bg {
   font-weight: 500;
   font-size: 1rem;
   background-color: #C2EFF5;
   /* border: 3px solid rgb(16,24,50); */
-  color:rgb(16,24,50);
+  color: rgb(16, 24, 50);
 }
-  .bg::before,::after {
-    background: rgb(16,24,50);
-    border: 2.4px solid rgb(16,24,50);
-  }
-  
-  .bg:hover {
-    border-image: none;
-  }
-    .bg:hover::before,::after {
-      background:rgb(16,24,50);
-    }
+
+.bg::before,
+::after {
+  background: rgb(16, 24, 50);
+  border: 2.4px solid rgb(16, 24, 50);
+
+}
+
+.bg:hover {
+  border-image: none;
+  background-color: #FDED01;
+  ;
+}
+
+.bg:hover::before,
+::after {
+  background: rgb(16, 24, 50);
+}
+
+.yel {
+  background-color: #FDED01;
+}
+
+.yel:hover{
+  background-color: #Fffffd;
+}

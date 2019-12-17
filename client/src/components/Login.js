@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AuthService from '../services/AuthService'
-import { Link } from "react-router-dom";
+
 
 
 
@@ -16,10 +16,6 @@ export default class Login extends Component {
     password: ''
   }
 
-//   sendChangeToApp= (e) => {
-//     const { key, value } = e.target;
-//     return this.props.changeApp(key,value)
-// }
   handleChange = (e) => {
     const { name, value } = e.target;
     this.setState({...this.state, [name]:value})
@@ -47,12 +43,12 @@ export default class Login extends Component {
     const { username, password } = this.state;
     return (
         <div className='flex'>
-        <h2>Login</h2>
+        <h2>Log in</h2>
           <form onSubmit={this.handleLogin} className='flex'>
             <label htmlFor="username">username </label>
-            <input class='margin-bottom' type="text" name="username" value={username} required onChange={this.handleChange}/>
+            <input className='margin-bottom' type="text" name="username" value={username} required onChange={this.handleChange}/>
             <label htmlFor="password">password </label>
-            <input class='margin-bottom' type="password" value={password} name="password" required onChange={this.handleChange}/>
+            <input className='margin-bottom' type="password" value={password} name="password" required onChange={this.handleChange}/>
             <button className="btn cta bg" type="submit" value="Login">Login</button>
           </form>
         </div>

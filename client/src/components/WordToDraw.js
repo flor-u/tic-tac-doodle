@@ -12,7 +12,7 @@ export default class WordToDraw extends Component {
           timeFinish: false,
           word:''
         };
-        console.log(this.props.appState)
+        console.log(this.props.appState.category)
       }
 
 
@@ -31,7 +31,7 @@ export default class WordToDraw extends Component {
 
     render() {
         return (
-            <div className='cel center' >
+            <div className='cel flex' >
             <div className='flex center'>
             <h3>You have 20 seconds to draw </h3>
                 <h4 className='words'>{this.state.word}</h4>

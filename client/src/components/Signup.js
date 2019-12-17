@@ -33,30 +33,30 @@ export default class Access extends Component {
     )
   }
 
-//   handleUpload = (e) => {
-//     const uploadData = new FormData();
-//     uploadData.append('image', e.target.files[0])
-//     this.authService.upload(uploadData)
-//     .then(
-//       (data) => {
-//         this.setState({...this.state, image: data.secure_url})
-//       },
-//       (error) => {
-//         console.error(error)
-//       }
-//     )
-//   }
+  handleUpload = (e) => {
+    const uploadData = new FormData();
+    uploadData.append('image', e.target.files[0])
+    this.authService.upload(uploadData)
+    .then(
+      (data) => {
+        this.setState({...this.state, image: data.secure_url})
+      },
+      (error) => {
+        console.error(error)
+      }
+    )
+  }
 
   render() {
     const { username, password} = this.state;
     return (
-      <div>
-      <h1>Sign Up</h1>
-        <form onSubmit={this.handleSignUp}>
+      <div className='flex'>
+      <h2>Sign Up</h2>
+        <form onSubmit={this.handleSignUp} className='flex'>
           <label htmlFor="username">username </label>
-          <input type="text" name="username" value={username} required onChange={this.handleChange}/>
+          <input className='margin-bottom' type="text" name="username" value={username} required onChange={this.handleChange}/>
           <label htmlFor="password">password </label>
-          <input type="password" value={password} name="password" required onChange={this.handleChange}/>
+          <input className='margin-bottom'type="password" value={password} name="password" required onChange={this.handleChange}/>
           <button className="btn cta bg" type="submit" value="Create account">Create account</button>
         </form>
       </div>

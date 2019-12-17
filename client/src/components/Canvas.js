@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Sketch from "react-p5";
-// import {toBlob} from "canvas-to-blob"
-import io from "socket.io-client";
+import {toBlob} from "canvas-to-blob"
+
 import AuthService from "../services/AuthService";
 
 export default class Canvas extends Component {
@@ -12,10 +12,23 @@ export default class Canvas extends Component {
       erased: false,
       serializedCanvas: null
     };
-    this.socket = this.props.socket;
-    console.log(this.props.socket);
-    this.socket.on("drawing", info => {});
+   
   }
+  fileUpload=(draw)=> {
+    let data = new FormData();
+    draw.toBlob((blob) =>{
+        data.append('data', blob);
+
+        this.authService.upload(data, {
+          headers: {
+              'Content-Type': 'multipart/form-data',
+          },
+      })
+            .then(res => {
+                console.log(res)
+            });
+    });
+}
 
   setup = p5 => {
     this.canvas = p5.createCanvas(20, 20).parent("canvas");
@@ -25,12 +38,6 @@ export default class Canvas extends Component {
     p5.frameRate(60);
   };
 
-  //   blobToFile = (blob, fileName)=>{
-  //     //A Blob() is almost a File() - it's just missing the two properties below which we will add
-  //     blob.lastModifiedDate = new Date();
-  //     blob.name = fileName;
-  //     return blob;
-  // }
 
   draw = p5 => {
     let line = [];
@@ -52,19 +59,21 @@ export default class Canvas extends Component {
       //   y1: p5.mouseY / h,
       // });
     }
-    this.canvas.elt.toBlob(function(blob) {
-      // console.log(blob)
-    });
+    // this.canvas.elt.toBlob(function(blob) {
+    //   // console.log(blob)
+    // });
 
     //  console.log(line);
     //  console.log(line.length)
 
     if (this.state.erased) {
-      let file = this.canvas.elt.toDataURL("image/png").split(",")[1];
-      let image = new File([file], "image.png", { type: "image/png" });
+      // let file = this.canvas.elt.toDataURL("image/png").split(",")[1];
+      // let image = new File([file], "image.png", { type: "image/png" });
       
-      console.log(image);
-      this.authService.upload(image);
+      
+      // console.log(image);
+      // this.authService.upload(image);
+      this.fileUpload(this.canvas.elt)
 
       p5.clear();
       p5.setup();
@@ -77,6 +86,9 @@ export default class Canvas extends Component {
       erased: true
     });
   };
+
+  
+
 
   render() {
     // console.log(this.state.erased);

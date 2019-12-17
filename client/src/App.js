@@ -12,7 +12,6 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 
 import Select from "./components/Select";
-import Choose from "./components/Choose";
 import Navigation from "./components/NavBar";
 import Draw from "./components/Draw";
 import ChooseGame from "./components/ChooseGame";
