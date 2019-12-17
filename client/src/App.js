@@ -11,7 +11,7 @@ import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 
-import Select from "./components/Select";
+import Profile from "./components/Profile";
 import Navigation from "./components/NavBar";
 import Draw from "./components/Draw";
 import ChooseGame from "./components/ChooseGame";
@@ -79,8 +79,7 @@ class App extends React.Component {
             <Route exact path='/signup' render={match => <Signup {...match} setUser={this.setUser} />} />
             <Route exact path='/choose-game' render={match => <ChooseGame {...match} setCategory={e => this.handleChange(e)} />} />
             <Route exact path='/word-to-draw' render={match => <WordToDraw {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
-            {/* <Route exact path='/select' render={match => <Select {...match} setCategory={e=>this.handleChange(e)}  />} />
-            <Route exact path='/choose-game' render={match => <Choose {...match} setCategory={e=>this.handleChange(e)}  />} /> */}
+            <Route exact path='/profile' render={match => <Profile {...match} appState={this.state} />} />
             <Route exact path='/draw' render={match => <Draw {...match} setUser={this.setUser} appState={this.state}/>} />
           </Switch>
         )}

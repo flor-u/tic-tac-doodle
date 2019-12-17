@@ -40,13 +40,18 @@ class AuthService {
     .catch(error => console.error(error))
   }
 
-//   updateProfile = (username, course, campus) => {
-//     return this.service
-//       .put("/profiles/:id", { username, course, campus })
-//       .then(response => response.data);
-//   };
+  updateProfile = (user) => {
+    return this.service
+      .put("/profiles/:id", { user })
+      .then(response => response.data);
+  };
 
 }
+
+// deleteDoodle=(user, doodle)=>{
+//   return this.service.delete('/deleteDoodle/:id', {user, doodle})
+//   .then(response => response.data);
+// }
 
 
 

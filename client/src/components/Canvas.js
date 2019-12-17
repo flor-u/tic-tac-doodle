@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Sketch from "react-p5";
-import {toBlob} from "canvas-to-blob"
-
+// import Sketch from "react-p5";
+import Clock from "./Clock";
 import AuthService from "../services/AuthService";
+import Sketch from "./Sketch";
 
 export default class Canvas extends Component {
   constructor(props) {
@@ -10,9 +10,8 @@ export default class Canvas extends Component {
     this.authService = new AuthService();
     this.state = {
       erased: false,
-      serializedCanvas: null
+      saved: false
     };
-   
   }
 
   setup = p5 => {
@@ -22,23 +21,23 @@ export default class Canvas extends Component {
     p5.frameRate(60);
   };
 
-
   draw = p5 => {
     let line = [];
     if (p5.mouseIsPressed === true) {
       line.push(p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY));
     }
-    if (this.props.props.newRound){
-      let image = this.canvas.elt.toDataURL("image/png")
-      this.authService.upload({image});
-    }
+
     if (this.state.erased) {
-      let image = this.canvas.elt.toDataURL("image/png")
-      this.authService.upload({image});
       p5.clear();
       p5.setup();
       this.setState({ erased: false });
     }
+  };
+
+  save = e => {
+    e.preventDefault();
+    let image = this.canvas.elt.toDataURL("image/png");
+    this.authService.upload({ image });
   };
 
   erase = e => {
@@ -49,13 +48,14 @@ export default class Canvas extends Component {
 
 
   render() {
+    console.log("rendered");
     return (
       <React.Fragment>
         <div>
-          <h1>Draw!</h1>
-          <button onClick={e => this.erase(e)}>X</button>
+          <button onClick={this.save}>save</button>
+          <button onClick={this.erase}>X</button>
           <div id='canvas'>
-            <Sketch setup={this.setup} draw={this.draw} />
+            <Sketch setup={this.setup} draw={this.draw} clear={this.clear}/>
           </div>
         </div>
       </React.Fragment>

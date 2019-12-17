@@ -96,7 +96,6 @@ input[type="text"] {
   width: 20vw;
 }
 
-
 script {
   display: block;
 }
@@ -227,6 +226,18 @@ script {
   background-color: #FDED01;
 }
 
-.yel:hover{
+.yel:hover {
   background-color: #Fffffd;
+}
+
+.clock {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.6rem;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }

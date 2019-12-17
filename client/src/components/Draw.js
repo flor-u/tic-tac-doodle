@@ -16,7 +16,6 @@ export default class Draw extends Component {
     
   }
 
-
   onFinish() {
     this.setState({
       ...this.state,
@@ -31,7 +30,7 @@ export default class Draw extends Component {
     }
     return (
       <div className='cel'>
-        <Clock onFinish={() => this.onFinish()}></Clock>
+       <Clock onFinish={() => this.onFinish()}></Clock>
         <div>
         <Canvas props={this.state} ></Canvas>
         </div>

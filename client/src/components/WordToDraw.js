@@ -33,8 +33,9 @@ export default class WordToDraw extends Component {
         return (
             <div className='cel flex' >
             <div className='flex center'>
-            <h3>You have 20 seconds to draw </h3>
+            <h3>Draw</h3>
                 <h4 className='words'>{this.state.word}</h4>
+                <h3>in less than 20 seconds</h3>
                 <Link className="btn cta bg yel" to='/draw' game={this.state}>Go</Link>
             </div>
             </div>
