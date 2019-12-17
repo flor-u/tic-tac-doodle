@@ -19,20 +19,19 @@ export default class ChooseGame extends Component {
     return (
       <div>
         <div>
-          <h2>Who are you</h2>
-          <h2>playing with?</h2>
-          <Link className="btn cta bg" to='/word-to-draw'>Solo</Link>
-          <Link className="btn cta bg" to='/word-to-draw'>Group</Link>
-
-          {/* <button className="btn cta bg" type='button' value='group' name='gameType' onClick={this.handleChange}>
-            Group
+        <h3>How skilled are you feeling?</h3>
+          <button className="btn cta bg" type='button' value='easy' name='category' onClick={this.handleChange} >
+            <Link to="/word-to-draw">Easy</Link>
           </button>
-          <button className="btn cta bg" type='button' value='solo' name='gameType' onClick={this.handleChange}>
-            Solo
-          </button> */}
+          <button className="btn cta bg" type='button' value='medium' name='category' onClick={this.handleChange}>
+            <Link to="/word-to-draw">Medium</Link>
+          </button>
+          <button className="btn cta bg" type='button' value='hard' name='category' onClick={this.handleChange}>
+          <Link to="/word-to-draw">Difficult</Link> 
+          </button>
         </div>
-        
-      </div>
+        </div>
+       
     );
   }
 }

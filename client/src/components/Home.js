@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AuthService from "../services/AuthService";
-import styled from "styled-components";
+
 
 export default class Home extends Component {
   render() {
@@ -13,7 +12,7 @@ export default class Home extends Component {
           height='360'
           // width="100"
         />
-        <h3> i will explain how the game works</h3>
+        <h3>practise your drawing skills trying to beat the clock</h3>
         <button className='btn cta bg'>
           <Link to='/signup'>Sign Up</Link>
         </button>

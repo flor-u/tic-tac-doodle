@@ -11,8 +11,7 @@ import Home from "./components/Home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 
-import Select from "./components/Select";
-import Choose from "./components/Choose";
+import Profile from "./components/Profile";
 import Navigation from "./components/NavBar";
 import Draw from "./components/Draw";
 import ChooseGame from "./components/ChooseGame";
@@ -54,13 +53,6 @@ class App extends React.Component {
     }
   };
 
-  // wordList = () => {
-  //   let category = [...this.state.words[0][this.props.appState.category]]; //array containing 100 words of selected category
-  //   let word = category[Math.floor(Math.random() * category.length)];
-  //   //     // const shuffled = category.sort(() => 0.5 - Math.random());//shuffles the array's elemnts
-  //   //     // let selected = shuffled.slice(0, 10);// Get sub-array of first 10 elements after shuffled
-  //   this.setState({ word: word });
-  // };
 
   handleChange = e => {
     console.log(e);
@@ -87,8 +79,7 @@ class App extends React.Component {
             <Route exact path='/signup' render={match => <Signup {...match} setUser={this.setUser} />} />
             <Route exact path='/choose-game' render={match => <ChooseGame {...match} setCategory={e => this.handleChange(e)} />} />
             <Route exact path='/word-to-draw' render={match => <WordToDraw {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
-            {/* <Route exact path='/select' render={match => <Select {...match} setCategory={e=>this.handleChange(e)}  />} />
-            <Route exact path='/choose-game' render={match => <Choose {...match} setCategory={e=>this.handleChange(e)}  />} /> */}
+            <Route exact path='/profile' render={match => <Profile {...match} appState={this.state} />} />
             <Route exact path='/draw' render={match => <Draw {...match} setUser={this.setUser} appState={this.state}/>} />
           </Switch>
         )}

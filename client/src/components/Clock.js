@@ -26,6 +26,10 @@ completed: false,
   };
 
   render() {
-    return <Countdown date={Date.now() + 20000} renderer={this.renderer} />;
+    return (
+    <div className="clock" >
+    <Countdown date={Date.now() + 20000} renderer={this.renderer} />
+    </div>
+    )
   }
 }
