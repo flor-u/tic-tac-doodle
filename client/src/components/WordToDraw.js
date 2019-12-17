@@ -2,6 +2,7 @@
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
 import Words from "../words.json";
+import NavBar from './NavBar.js';
 
 export default class WordToDraw extends Component {
     constructor(props) {
@@ -31,7 +32,8 @@ export default class WordToDraw extends Component {
 
     render() {
         return (
-            <div className='cel flex' >
+            <div className='cel' >
+            <NavBar></NavBar>
             <div className='flex center'>
             <h3>Draw</h3>
                 <h4 className='words'>{this.state.word}</h4>

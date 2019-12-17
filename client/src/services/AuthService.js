@@ -46,12 +46,15 @@ class AuthService {
       .then(response => response.data);
   };
 
+  // deleteDoodle=(user, idx)=>{
+  //   return this.instance
+  //   .put('/deleteDoodle', {user, idx})
+  //   .then(response => response.data);
+  // }
+
 }
 
-// deleteDoodle=(user, doodle)=>{
-//   return this.service.delete('/deleteDoodle/:id', {user, doodle})
-//   .then(response => response.data);
-// }
+
 
 
 

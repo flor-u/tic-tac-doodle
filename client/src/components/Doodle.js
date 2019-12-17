@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-// import AuthService from "./services/AuthService"
+
 
 const Card = styled.img`
 width: 16rem;
@@ -13,9 +13,8 @@ export default class Doodle extends Component {
         super(props)
         this.state={
             user: this.props.user
-            
         }
-       
+        
     }
 
     

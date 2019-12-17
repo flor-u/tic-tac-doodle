@@ -164,8 +164,18 @@ router.get("/loggedin", (req, res, next) => {
 
 router.post("/upload", (req, res) => {
   let user = req.user._id;
-
-  User.findByIdAndUpdate(user, { $push: { doodles: req.body.image } }, { new: true }).then(userUpdated => res.json(userUpdated));
+  User.findByIdAndUpdate(user, { $push: { doodles: req.body.image } }, { new: true })
+  .then(userUpdated => res.json(userUpdated));
 });
 
+// router.put('/deleteDoodle', (req, res)=>{
+//   // console.log(req.body.idx)
+// let position= req.body.idx
+// // let user = req.user._id
+// User.findByIdAndUpdate({user}, {$unset : { [doodles[position]] : 1 }}, { new: true })
+// // console.log(['doodles.'+ position])
+// })
+
 module.exports = router;
+
+

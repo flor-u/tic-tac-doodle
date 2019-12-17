@@ -10,7 +10,6 @@ export default class Canvas extends Component {
     this.authService = new AuthService();
     this.state = {
       erased: false,
-      saved: false
     };
   }
 
@@ -25,6 +24,7 @@ export default class Canvas extends Component {
     let line = [];
     if (p5.mouseIsPressed === true) {
       line.push(p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY));
+      
     }
 
     if (this.state.erased) {

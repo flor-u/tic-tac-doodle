@@ -1,20 +1,24 @@
 import React, { Component } from "react";
 import Doodle from "./Doodle";
+import AuthService from "../services/AuthService"
 
 export default class Profile extends Component {
   constructor(props) {
     super(props);
-
+    this.authService = new AuthService()
     this.state = {
       user: this.props.appState.user
     };
-    console.log(this.state.user);
+   
   }
 
-//   deleteDoodle= (e, user, doodle) => {
-//     e.preventDefault;
-//     return console.log("about to delete this doodle");
-//   };
+  // deleteDoodle = (e) => {
+  //   // e.preventDefault;
+  //   let idx= e.target.value
+  //   console.log(e.target.value)
+  //   let user = this.state.user ;
+  //   this.authService.deleteDoodle(user, idx)
+  // };
 
   render() {
     return (
@@ -25,12 +29,11 @@ export default class Profile extends Component {
         </div>
         <div className='gallery'>
           {this.state.user.doodles.map((doodle, idx) => {
-            console.log(idx)
+           
             return (
               <div key={idx} >
-              
-                <button 
-                // onClick={(e, user, doodle) => this.deleteDoodle(e, this.state.user, this.props.doodle)}
+                <button value={idx}
+                // onClick={(e) => this.deleteDoodle(e)}
                 >X</button>
                 <Doodle doodle={doodle} user={this.state.user} />
               </div>
