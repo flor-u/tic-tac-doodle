@@ -24,7 +24,9 @@ app.use((err, req, res, next) => {
 let server = http.createServer(app);
 
 server.on('error', error => {
-  if (error.syscall !== 'listen') { throw error }
+  if (error.syscall !== 'listen') {
+    throw error
+  }
 
   // handle specific listen errors with friendly messages
   switch (error.code) {
@@ -47,16 +49,30 @@ server.listen(process.env.PORT, () => {
 
 const io = require('socket.io').listen(server)
 
-let userList = []
 
-io.on("connection", socket => {
-  console.log("socket connected");
+io.sockets.on('connection',
+  // We are given a websocket object in our function
+  function (socket) {
+  
+    console.log("We have a new client: " + socket.id);
+  
+    // When this user emits, client side: socket.emit('otherevent',some data);
+    socket.on('mouse',
+      function(data) {
+        // Data comes in as whatever was sent, including objects
+        console.log("Received: 'mouse' " + data.x + " " + data.y);
+      
+        // Send it to all other clients
+        socket.broadcast.emit('mouse', data);
+        
+        // This is a way to send to everyone including sender
+        // io.sockets.emit('message', "this goes to everyone");
 
-socket.on("messageSent", message => {
-    console.log(message);
-    socket.emit("newMessage", message);
-    socket.broadcast.emit("newMessage", message);
-  });
-
-
-});
+      }
+    );
+    
+    socket.on('disconnect', function() {
+      console.log("Client has disconnected");
+    });
+  }
+);

@@ -12,10 +12,12 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 
 import Profile from "./components/Profile";
-import Navigation from "./components/NavBar";
+
 import Draw from "./components/Draw";
 import ChooseGame from "./components/ChooseGame";
 import WordToDraw from "./components/WordToDraw";
+import tryCanvasSend from "./components/tryCanvasSend";
+import tryCanvasReceive from "./components/TryCanvasReceive";
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +33,6 @@ class App extends React.Component {
 
   //user methods//
   setUser = user => {
-    console.log(this.state);
     this.setState({ ...this.state, user });
   };
 
@@ -55,14 +56,9 @@ class App extends React.Component {
 
 
   handleChange = e => {
-    console.log(e);
-    // const {name, value} = e;
     this.setState(e);
   };
 
-  // componentDidMount() {
-  //   this.wordList();
-  // }
 
   render() {
     this.fetchUser();
@@ -70,8 +66,6 @@ class App extends React.Component {
 
     return (
       <div className='App'>
-        {/* <header className="App-header"> */}
-        {/* <Navigation loggedInUser={this.state} setUser={this.setUser} setCategory={e=>this.handleChange(e)}/> */}
         {user && (
           <Switch>
             <Route exact path='/' component={Home} />
@@ -81,6 +75,8 @@ class App extends React.Component {
             <Route exact path='/word-to-draw' render={match => <WordToDraw {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
             <Route exact path='/profile' render={match => <Profile {...match} appState={this.state} />} />
             <Route exact path='/draw' render={match => <Draw {...match} appState={this.state}/>} />
+            <Route exact path='/try' component={tryCanvasSend} />
+            <Route exact path='/guess' component={tryCanvasReceive} />
           </Switch>
         )}
         {!user && (

@@ -16,12 +16,11 @@ export default class Profile extends Component {
   deleteDoodle = e => {
     // e.preventDefault;
     let idx = e.target.value;
-    console.log(e.target.value);
     let user = this.state.user;
-    this.authService.deleteDoodle(user, idx).then(response => {
+    this.authService.deleteDoodle(user, idx)
+    .then(response => {
       this.setState({ ...this.state, user: response });
     });
-    console.log(this.state);
   };
 
   componentDidMount = () => {
