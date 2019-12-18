@@ -5,39 +5,43 @@ import AuthService from "../services/AuthService";
 import styled from "styled-components";
 
 const Header = styled.header`
-  border-bottom: 0.2rem solid rgb(16, 24, 50);
+background-color: #C2EFF5;
+  border-bottom: .6rem solid #AEDBE1;
+  box-shadow: 0px 1px 1px 0px rgba(16,24,50,.2);
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  ${"" /* text-transform: uppercase; */}
-  ${"" /* position: fixed; */}
-    width: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  text-transform: uppercase; 
+  ${'' /* position: fixed; */}
   padding: 0.8rem 0;
-
-  z-index: 9999;
-  transition: all 0.3s;
+  height: 3rem;
+  ${'' /* transition: all 0.3s; */}
+  width: 100vw;
 `;
 
 const Ul = styled.ul`
   text-decoration: none;
-  margin: 0 0.6rem 0 0;
+  ${'' /* margin: 0 0.6rem 0 0; */}
+  display:flex;
+  
 `;
 
-const LiA = styled.a`
-  padding: 1rem 0.5rem;
-  font-family: "Nanum Pen Script", cursive;
+const LiA = styled.li`
+  padding: .6rem 0.5rem;
+  ${'' /* font-family: "Nanum Pen Script", cursive; */}
   font-weight: 500;
-  display: inline-block;
+  display: block;
   color: inherit;
-  margin: 0 1.5rem;
+  margin: 1rem;
   text-align: right;
   font-size: 1.6rem;
 `;
 
-class NavBar extends Component {
+export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService();
+    console.log(props)
   }
 
   logoutUser = () => {
@@ -56,7 +60,7 @@ class NavBar extends Component {
       <Header>
         <Ul>
           <LiA>
-            <Link to='/'>
+            <Link to='' onClick={() => this.props.props.history.goBack()}>
               Back
             </Link>
           </LiA>
@@ -76,4 +80,3 @@ class NavBar extends Component {
   }
 }
 
-export default NavBar;

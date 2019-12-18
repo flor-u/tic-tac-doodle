@@ -32,13 +32,14 @@ export default class WordToDraw extends Component {
 
     render() {
         return (
-            <div className='cel' >
-            <NavBar></NavBar>
-            <div className='flex center'>
-            <h3>Draw</h3>
+            <div className='full' >
+            <NavBar props={this.props}></NavBar>
+            <div className='center'>
+            <div>
+            <h3>You have 20 seconds to draw</h3>
                 <h4 className='words'>{this.state.word}</h4>
-                <h3>in less than 20 seconds</h3>
                 <Link className="btn cta bg yel" to='/draw' game={this.state}>Go</Link>
+            </div>
             </div>
             </div>
         )

@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import Canvas from "./Canvas";
 import Clock from "./Clock";
 import AuthService from "../services/AuthService";
+import NavBar from "./NavBar";
 
 export default class Draw extends Component {
   constructor(props) {
@@ -57,12 +58,15 @@ export default class Draw extends Component {
       return <Redirect to='/word-to-draw' />;
     }
     return (
-      <div className='cel'>
+      <div className='full cel'>
+      <NavBar props={this.props}></NavBar>
+      <div className='flex center'>
         <Clock onFinish={() => this.onFinish()} refCallback={this.setClockRef} time='100'></Clock>
         <button onClick={this.start}>Start Clock</button>
         <button onClick={this.pause}>Pause Clock</button>
         <div>
           <Canvas props={this.state} ></Canvas>
+        </div>
         </div>
       </div>
     );

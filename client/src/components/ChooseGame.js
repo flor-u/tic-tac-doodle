@@ -1,13 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
-import Navigation from "./NavBar";
-import { Navbar } from "react-bootstrap";
+import NavBar from "./NavBar";
+
 
 export default class ChooseGame extends Component {
   constructor(props) {
     super(props);
+    this.state={
+      user: this.props.appState.user
+
+    }
     this.authService = new AuthService();
+    console.log(this.props.appState.user)
   }
 
   handleChange = e => {
@@ -18,8 +23,10 @@ export default class ChooseGame extends Component {
 
   render() {
     return (
-      <div>
-      <Navbar></Navbar>
+      <div className='full'>
+      <NavBar props={this.props}></NavBar>
+    
+        <div className='center'>
         <div>
         <h3>How skilled are you feeling?</h3>
           <button className="btn cta bg" type='button' value='easy' name='category' onClick={this.handleChange} >
@@ -31,6 +38,7 @@ export default class ChooseGame extends Component {
           <button className="btn cta bg" type='button' value='hard' name='category' onClick={this.handleChange}>
           <Link to="/word-to-draw">Difficult</Link> 
           </button>
+          </div>
         </div>
         </div>
        
