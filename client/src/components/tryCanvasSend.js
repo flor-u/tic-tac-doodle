@@ -15,55 +15,26 @@ export default class tryCanvasSend extends Component {
   setup = p5 => {
     p5.createCanvas(400, 400).parent("pictionary");
     p5.background(255);
-    // Start a socket connection to the server
-
-    // Some day we would run this server somewhere else
-    // We make a named event called 'mouse' and write an
-    // anonymous callback function
-    socket.on(
-      "mouse",
-      // When we receive data
-      function(data) {
-        console.log("Got: " + data.x + " " + data.y);
-       
-        // p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY);
-        // p5.strokeWeight(6);
-        
-        p5.fill(0);
-        p5.noStroke();
-        p5.ellipse(data.x, data.y, 6, 6);
-
-        p5.frameRate(60);
-      }
-    );
   };
 
   draw = (p5) => {
+    let line = [];
     if (p5.mouseIsPressed === true){
-    //     p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY);
-    // p5.strokeWeight(6);
-
-    p5.fill(100);
-    p5.noStroke();
-    p5.ellipse(p5.mouseX, p5.mouseY, 6, 6);
-
+        
+        line.push(p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY))
+    p5.strokeWeight(6);
     p5.frameRate(60);
-    // Send the mouse coordinates
-    this.sendmouse(p5.mouseX, p5.mouseY);// Nothing
+    this.sendmouse(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY);// Nothing
   };}
 
 
-  sendmouse = (xpos, ypos) => {
-    // We are sending!
-    console.log("sendmouse: " + xpos + " " + ypos);
-
-    // Make a little object with  and y
+  sendmouse = (xpos, ypos, x1, y1) => {
     var data = {
       x: xpos,
-      y: ypos
+      y: ypos,
+      x1: x1,
+      y1: y1
     };
-
-    // Send that object to the socket
     socket.emit("mouse", data);
   };
 
