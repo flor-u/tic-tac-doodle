@@ -41,7 +41,7 @@ export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService();
-    console.log(props)
+    console.log(this.props.props.match.path)
   }
 
   logoutUser = () => {
@@ -53,10 +53,33 @@ export default class NavBar extends Component {
   };
 
   render() {
+      const path= this.props.props.match.path
     // const saludo = this.props.loggedInUser ? this.props.loggedInUser.username : 'invitado'
 
     return (
-      // this.props.loggedInUser ?
+      path === '/profile' ?
+      <Header>
+        <Ul>
+          <LiA>
+            <Link to='' onClick={() => this.props.props.history.goBack()}>
+              Back
+            </Link>
+          </LiA>
+          <LiA>
+            <Link to='/choose-game'>
+              Play
+            </Link>
+          </LiA>
+          <LiA>
+            <Link to='/' onClick={this.logoutUser}>
+              Logout
+            </Link>
+          </LiA>
+        </Ul>
+      </Header>
+      
+      :
+
       <Header>
         <Ul>
           <LiA>

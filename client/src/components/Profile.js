@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Doodle from "./Doodle";
 import AuthService from "../services/AuthService"
+import NavBar from "./NavBar";
 
 export default class Profile extends Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class Profile extends Component {
     this.state = {
       user: this.props.appState.user
     };
-   
+   console.log(this.props)
   }
 
   // deleteDoodle = (e) => {
@@ -23,6 +24,7 @@ export default class Profile extends Component {
   render() {
     return (
       <div className='flex cel'>
+      <NavBar props={this.props}></NavBar>
         <div>
           <h4>Hi, {this.state.user.username}</h4>
           <h3>Your saved doodles</h3>
