@@ -25,10 +25,9 @@ export default class ChooseGame extends Component {
     return (
       <div className='full'>
       <NavBar props={this.props}></NavBar>
-    
-        <div className='center'>
-        <div>
+        <div className='flex center'>
         <h3>How skilled are you feeling?</h3>
+        <div>
           <button className="btn cta bg" type='button' value='easy' name='category' onClick={this.handleChange} >
             <Link to="/word-to-draw">Easy</Link>
           </button>

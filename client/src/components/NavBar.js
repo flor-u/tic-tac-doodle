@@ -13,8 +13,8 @@ background-color: #C2EFF5;
   justify-content: flex-end;
   text-transform: uppercase; 
   ${'' /* position: fixed; */}
-  padding: 0.8rem 0;
-  height: 3rem;
+  padding: 0.4rem 0;
+  height: 2.4rem;
   ${'' /* transition: all 0.3s; */}
   width: 100vw;
 `;
@@ -27,7 +27,7 @@ const Ul = styled.ul`
 `;
 
 const LiA = styled.li`
-  padding: .6rem 0.5rem;
+  padding: .4rem 0.5rem;
   ${'' /* font-family: "Nanum Pen Script", cursive; */}
   font-weight: 500;
   display: block;

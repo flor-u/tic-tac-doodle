@@ -56,6 +56,7 @@ h3 {
   font-family: 'Nanum Pen Script', cursive;
   text-align: center;
   font-weight: 500;
+  line-height: 1.6rem;
   
 }
 
@@ -99,7 +100,7 @@ input[type="text"] {
   height: 2.5rem;
   border: none;
   border-bottom: 2.4px solid rgb(16, 24, 50);
-  width: 20vw;
+  min-width: 20vw;
 }
 
 script {
@@ -110,7 +111,7 @@ script {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80%;
+  height: 90%;
 }
 
 .bottom {

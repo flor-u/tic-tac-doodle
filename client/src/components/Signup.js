@@ -50,7 +50,8 @@ export default class Access extends Component {
   render() {
     const { username, password} = this.state;
     return (
-      <div className='flex'>
+      <div className="full">
+        <div className='flex center'>
       <h2>Sign Up</h2>
         <form onSubmit={this.handleSignUp} className='flex'>
           <label htmlFor="username">username </label>
@@ -59,6 +60,7 @@ export default class Access extends Component {
           <input className='margin-bottom'type="password" value={password} name="password" required onChange={this.handleChange}/>
           <button className="btn cta bg" type="submit" value="Create account">Create account</button>
         </form>
+      </div>
       </div>
     )
   }

@@ -42,7 +42,8 @@ export default class Login extends Component {
    console.log(this.state)
     const { username, password } = this.state;
     return (
-        <div className='flex'>
+      <div className="full">
+        <div className='flex center'>
         <h2>Log in</h2>
           <form onSubmit={this.handleLogin} className='flex'>
             <label htmlFor="username">username </label>
@@ -51,6 +52,7 @@ export default class Login extends Component {
             <input className='margin-bottom' type="password" value={password} name="password" required onChange={this.handleChange}/>
             <button className="btn cta bg" type="submit" value="Login">Login</button>
           </form>
+        </div>
         </div>
     )
   }

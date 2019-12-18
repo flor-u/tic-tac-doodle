@@ -168,13 +168,25 @@ router.post("/upload", (req, res) => {
   .then(userUpdated => res.json(userUpdated));
 });
 
-// router.put('/deleteDoodle', (req, res)=>{
-//   // console.log(req.body.idx)
-// let position= req.body.idx
-// // let user = req.user._id
-// User.findByIdAndUpdate({user}, {$unset : { [doodles[position]] : 1 }}, { new: true })
-// // console.log(['doodles.'+ position])
-// })
+router.get('/getAllDoodles', (req, res) => {
+  User.find(req.user)
+      .then(user => res.json(user))
+      .catch(err => console.log('DB error', err))
+})
+
+router.put('/deleteDoodle', (req, res)=>{
+  
+let position= req.body.idx
+
+let user = req.user._id
+
+User.findByIdAndUpdate(user, { $pull: {doodles :req.body.user.doodles[position] }},{new:true})
+.then(userUpdated => res.json(userUpdated))
+.catch(err=>console.log(err))
+
+})
+
+
 
 module.exports = router;
 

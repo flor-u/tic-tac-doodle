@@ -32,26 +32,31 @@ export default class Draw extends Component {
     this.clockRef = ref;
   }
   onFinish() {
-    //function to send info to canvas
-
-    this.setState({
-      ...this.state,
-      newRound: true
-    });
+    let promise = new Promise( (resolve, reject) => {
+      let finish = true
+      if (finish) {
+       resolve(
+         this.getImage());
+      }
+      else {
+       reject(Error("Promise rejected"));
+      }
+     });
+promise.then(result =>{
+  this.setState({...this.state,newRound: true });}
+  , function(error) {
+   console.log(error);
+})
+    
   }
 
-  //function to send info to canvas(){
-  //   time is finished
-  // }
-
-  // function to receive info from canvas(){
-  //  ready, now you can set your state
-  // this.setState({
-    //   ...this.state,
-    //   newRound: true
-    // });
-  // }
-
+getImage(image){
+  if(image === undefined){
+    return
+  } else {
+    this.authService.upload({image});
+  }
+}
 
   render() {
     if (this.state.newRound) {
@@ -65,7 +70,7 @@ export default class Draw extends Component {
         <button onClick={this.start}>Start Clock</button>
         <button onClick={this.pause}>Pause Clock</button>
         <div>
-          <Canvas props={this.state} ></Canvas>
+          <Canvas props={this.state} image={(image) => this.getImage(image)}></Canvas>
         </div>
         </div>
       </div>

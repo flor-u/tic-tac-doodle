@@ -34,7 +34,7 @@ export default class WordToDraw extends Component {
         return (
             <div className='full' >
             <NavBar props={this.props}></NavBar>
-            <div className='center'>
+            <div className='flex center'>
             <div>
             <h3>You have 20 seconds to draw</h3>
                 <h4 className='words'>{this.state.word}</h4>
