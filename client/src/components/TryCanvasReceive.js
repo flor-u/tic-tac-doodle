@@ -24,11 +24,14 @@ export default class tryCanvasReceive extends Component {
       "mouse",
       // When we receive data
       function(data) {
-        console.log("Got: " + data.x + " " + data.y);
-        // Draw a blue circle
+   
+        // p5.line(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY);
+        // p5.strokeWeight(6);
+        
         p5.fill(0);
         p5.noStroke();
         p5.ellipse(data.x, data.y, 6, 6);
+
         p5.frameRate(60);
       }
     );
