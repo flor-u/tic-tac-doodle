@@ -2,7 +2,18 @@ import React, { Component } from "react";
 import Doodle from "./Doodle";
 import AuthService from "../services/AuthService";
 import NavBar from "./NavBar";
+import styled from 'styled-components'
 
+const Button= styled.button`
+border: 3px rgb(16, 24, 50) solid;
+outline: none;
+  cursor: pointer;
+  min-width: 2rem;
+  padding: .4rem .7rem;
+  margin: auto 2rem;
+  box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
+  transform-origin: rigth top;
+`
 export default class Profile extends Component {
   constructor(props) {
     super(props);
@@ -47,10 +58,11 @@ export default class Profile extends Component {
             {this.state.user.doodles.map((doodle, idx) => {
               return (
                 <div key={idx}>
-                  <button value={idx} onClick={e => this.deleteDoodle(e)}>
-                    X
-                  </button>
+                  
                   <Doodle doodle={doodle} user={this.state.user} />
+                  <Button className='bg yel' value={idx} onClick={e => this.deleteDoodle(e)}>
+                    X
+                  </Button>
                 </div>
               );
             })}

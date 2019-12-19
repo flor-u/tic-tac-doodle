@@ -57,7 +57,7 @@ h3 {
   text-align: center;
   font-weight: 500;
   line-height: 1.6rem;
-  
+
 }
 
 h4 {
@@ -70,18 +70,18 @@ h5 {
 }
 
 
-h6{
+h6 {
   font-size: 1rem;
   text-align: left;
   font-weight: 600;
   line-height: 0rem;
 }
 
- li{
-   list-style: none;
-   font-size: 1rem;
-   font-weight: 600;
- }
+li {
+  list-style: none;
+  font-size: 1rem;
+  font-weight: 600;
+}
 
 label {
   font-family: 'Montserrat', sans-serif;
@@ -110,7 +110,7 @@ input[type="text"] {
   /* justify-content: space-evenly; */
 }
 
-.full{
+.full {
   width: 100vw;
   height: 100vh;
 }
@@ -194,7 +194,6 @@ script {
 }
 
 .btn:active {
-
   border-image-slice: 1;
   /* background-color: #C2EFF5; */
   background-size: 90%;
@@ -273,41 +272,39 @@ script {
 }
 
 .gallery {
-  width:100vw;
+  width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-.chatBox{
+.chatBox {
   height: 10vh;
   overflow-y: scroll;
   background-color: white;
-width:30vw;
-  padding:1.2rem;
+  width: 30vw;
+  padding: 1.2rem;
 }
 
-
-
-.textForm{
+.textForm {
   margin-top: 2rem;
 }
 
-#userList{
+#userList {
   margin-top: 2rem;
 }
 
-#cont{
+#cont {
   max-height: 25vh;
 }
 
-.list-group-item{
+.list-group-item {
   padding: 0;
 }
 
-.send{
+.send {
   border: 3px rgb(16, 24, 50) solid;
-outline: none;
+  outline: none;
   cursor: pointer;
   width: 5rem;
   padding: .4rem .7rem;
@@ -315,14 +312,51 @@ outline: none;
   box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
   transform-origin: rigth top;
   align-self: center;
-
 }
 
-.guess-input{
-  
+.guess-input {
   background-color: #C2EFF5;
   height: 1.4rem;
   border: none;
   border-bottom: 2.4px solid rgb(16, 24, 50);
   min-width: 20vw;
 }
+
+.doodleCard{
+  
+  width: 16rem;
+  border: 3px solid rgb(16, 24, 50);
+    margin-bottom: 1.2rem;
+    display: block;
+    position: relative;  
+}
+
+.doodleCard::before,
+.doodleCard::after {
+  content: '';
+    position: absolute;
+     
+  
+}
+
+.doodleCard::before {
+  top: 2px;              
+    left: -13px;          
+    width: 10px;
+    height: 102%;
+    background: #FDED01;
+    transform: skewY(-45deg);
+    
+}
+
+.doodleCard::after {
+  border: none;
+  background: #FFD504;
+   height: 10px;
+    width: 102%;
+    bottom: -13px;                     
+    top: auto;
+    right: 3px;
+    transform: skewX(-45deg); 
+}
+
