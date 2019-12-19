@@ -85,9 +85,9 @@ io.sockets.on('connection',
       }
     );
 
-    socket.on('disconnect', function () {
+    socket.on('disconnect', function (user) {
       console.log("Client has disconnected");
-      // userList.filter(user=> !user)
+      userList.filter(e => e !== user)
     });
   }
 );

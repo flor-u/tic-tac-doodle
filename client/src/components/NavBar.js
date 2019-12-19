@@ -41,8 +41,17 @@ export default class NavBar extends Component {
     super(props);
     this.authService = new AuthService();
     console.log(this.props)
+
+    this.socket = this.props.socket;
+  
   }
 
+  removeUser(){
+    let user= this.props.props.appState.user.username
+    this.socket.emit('disconnect', user)
+    this.props.props.history.goBack()
+  }
+  
   logoutUser = () => {
     this.authService
       .logout()
@@ -59,12 +68,12 @@ export default class NavBar extends Component {
       <Header>
         <Ul>
           <LiA>
-            <Link to='' onClick={() => this.props.props.history.goBack()}>
+            <Link to='' onClick={this.removeUser}>
               Back
             </Link>
           </LiA>
           <LiA>
-            <Link to='/choose-game'>
+            <Link to='/select'>
               Play
             </Link>
           </LiA>

@@ -12,6 +12,12 @@ export default class Select extends Component {
     const { name, value } = e.target;
     this.props.setCategory({ [name]: value });
   };
+
+  handleSubmit = () => {
+    console.log(this.props.appState.user.username)
+    this.props.info(this.props.appState.user.username);
+  };
+
   render() {
     return (
       <div className='full'>
@@ -22,8 +28,10 @@ export default class Select extends Component {
             <button className='btn cta bg' type='button' value='solo' name='category' onClick={this.handleChange}>
               <Link to='/choose-game'>Solo</Link>
             </button>
-            <button className='btn cta bg' type='button' value='group' name='category' onClick={this.handleChange}>
-              <Link to='/game'>Group</Link>
+            <button className='btn cta bg' type='button' value='group' name='category' onClick={() => {
+            this.handleSubmit();
+          }}>
+              <Link to='/game' >Group</Link>
             </button>
             {/* <button className="btn cta bg" type='button' value='hard' name='category' onClick={this.handleChange}>
           <Link to="/word-to-draw">Difficult</Link> 

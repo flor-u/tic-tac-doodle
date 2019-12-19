@@ -6,7 +6,8 @@ export default class Chat extends Component {
     super(props);
     console.log(this.props);
     this.state = {
-      messages: []
+      messages: [],
+      userList:this.props.list
     };
 
     // Recibimos el socket por props, se creó en ChatComponent.js
@@ -35,20 +36,26 @@ export default class Chat extends Component {
   // Con este método nos aseguramos de que el cuadro de chat tenga siempre el scroll
   // abajo, de esta manera el scroll no volverá arriba si el contenedor de mensajes
   // se llena por completo
-  componentDidUpdate = () => {
+  
+  
+
+  componentDidUpdate() {
     document.getElementById("chatBox").scrollTop = document.getElementById("chatBox").scrollHeight;
+   
   };
+
 
   // Renderiza la lista de usuarios, el box con el chat y el input para poder escribir mensajes.
   render() {
-    console.log(this.state);
+    console.log(this.props, this.state.userList);
+  let users=[...new Set(this.props.list)]
     return (
       <div id='cont' className='gallery'>
         {/* Lista de usuarios */}
         <div className='flex2'>
           <h5>Players</h5>
           <ul className='chatbox'>
-            {this.props.list.map((elem, idx) => {
+            {users.map((elem, idx) => {
               return elem === this.props.user ? (
                 <li key={idx}>
                   <b>{elem}</b>

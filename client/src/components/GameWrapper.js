@@ -19,7 +19,7 @@ export default class GameWrapper extends Component {
     this.socket = connection;
 
     this.socket.on("list", list => {
-      console.log(list);
+      console.log(list)
       this.setState({ ...this.state, userList: list });
     });
   }
@@ -28,19 +28,21 @@ export default class GameWrapper extends Component {
   // Realiza un ".emit" al server para que lo añada a la lista de usuarios.
   // Nos redirije a "/chat"
   updateUserList = name => {
-    if (name.trim() !== "") {
+    // if (name.trim() !== "") {
     this.setState({ ...this.state, user: name }, () => {
       this.socket.emit("newUser", name);
       console.log(this.state);
       // this.props.history.push("/chat");
     });
-    }
+    // }
   };
 
+  
+
   //esto no esta bien
-componentWillMount(){
-  console.log(this.props.user.username)
-  this.updateUserList(this.props.user.username)
+componentDidMount(){
+  // console.log(this.props.user.username)
+  this.updateUserList(this.props.username)
 }
   //   componentDidMount(){
   //     console.log(this.props.user.username)
@@ -48,16 +50,15 @@ componentWillMount(){
   //   }
 
   render() {
-    console.log(this.state.userList)
-    
+    console.log(this.state)
     //conditional render if host or guest ? SendCanvas:Guess
     return (
       this.state.userList[0] === this.state.user ?
       <div className='full cel'>
-        <NavBar props={this.props}></NavBar>
+        <NavBar props={this.props} socket={this.socket}></NavBar>
         <div className="flex center">
         <div>
-        <SendCanvas socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></SendCanvas>
+        <SendCanvas socket={this.socket} user={this.state.user} props={this.props}></SendCanvas>
         </div>
         {/* <Guess socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></Guess> */}
         <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
@@ -69,8 +70,8 @@ componentWillMount(){
         <div className="flex center">
         <div>
         {/* <SendCanvas socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></SendCanvas> */}
+        <Guess socket={this.socket}  user={this.state.user} props={this.props}></Guess>
         </div>
-        <Guess socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></Guess>
         <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
       </div>
       </div>
