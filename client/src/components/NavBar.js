@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import AuthService from "../services/AuthService";
 import styled from "styled-components";
@@ -41,7 +40,7 @@ export default class NavBar extends Component {
   constructor(props) {
     super(props);
     this.authService = new AuthService();
-    console.log(this.props.props.match.path)
+    console.log(this.props)
   }
 
   logoutUser = () => {
@@ -54,7 +53,6 @@ export default class NavBar extends Component {
 
   render() {
       const path= this.props.props.match.path
-    // const saludo = this.props.loggedInUser ? this.props.loggedInUser.username : 'invitado'
 
     return (
       path === '/profile' ?

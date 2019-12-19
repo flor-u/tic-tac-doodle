@@ -1,33 +1,36 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AuthService from '../services/AuthService'
+
+import NavBar from "./NavBar";
+
 
 export default class Select extends Component {
-    constructor(props) {
+  constructor(props) {
     super(props);
-    this.authService = new AuthService();
   }
-  handleChange = (e) => {
-  
+  handleChange = e => {
     const { name, value } = e.target;
-    // this.setState({[name]:value})
-    this.props.setCategory({[name]:value})
-    
-  }
+    this.props.setCategory({ [name]: value });
+  };
   render() {
     return (
-      <div>
-      <h3>Game type</h3>
-      <button type='button' value="group" name="gameType" 
-      onClick={this.handleChange}>
-      Group
-      </button>
-       <button type='button' value="solo" name="gameType" 
-      onClick={this.handleChange}
-      >Solo</button>
-        <Link to='/draw'>Go</Link>
+      <div className='full'>
+        <NavBar props={this.props}></NavBar>
+        <div className='flex center'>
+          <h3>Game type</h3>
+          <div>
+            <button className='btn cta bg' type='button' value='solo' name='category' onClick={this.handleChange}>
+              <Link to='/choose-game'>Solo</Link>
+            </button>
+            <button className='btn cta bg' type='button' value='group' name='category' onClick={this.handleChange}>
+              <Link to='/game'>Group</Link>
+            </button>
+            {/* <button className="btn cta bg" type='button' value='hard' name='category' onClick={this.handleChange}>
+          <Link to="/word-to-draw">Difficult</Link> 
+          </button> */}
+          </div>
+        </div>
       </div>
-    
     );
   }
 }

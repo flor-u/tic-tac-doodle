@@ -4,7 +4,6 @@ import { Switch, Route } from "react-router-dom";
 import AuthService from "./services/AuthService";
 
 import "./App.css";
-import { Navbar, Nav } from "react-bootstrap";
 
 import Home from "./components/Home";
 
@@ -16,8 +15,9 @@ import Profile from "./components/Profile";
 import Draw from "./components/Draw";
 import ChooseGame from "./components/ChooseGame";
 import WordToDraw from "./components/WordToDraw";
-import tryCanvasSend from "./components/tryCanvasSend";
-import tryCanvasReceive from "./components/TryCanvasReceive";
+
+import GameWrapper from "./components/GameWrapper";
+import Select from "./components/Select";
 
 class App extends React.Component {
   constructor(props) {
@@ -28,7 +28,6 @@ class App extends React.Component {
   state = {
     user: null,
     category: "", //from what list the user will be drawing
-    gameType: "" //playing solo or in group
   };
 
   //user methods//
@@ -71,12 +70,12 @@ class App extends React.Component {
             <Route exact path='/' component={Home} />
             <Route exact path='/login' render={match => <Login {...match} setUser={this.setUser} />} />
             <Route exact path='/signup' render={match => <Signup {...match} setUser={this.setUser} />} />
+            <Route exact path='/select' render={match => <Select {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
             <Route exact path='/choose-game' render={match => <ChooseGame {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
             <Route exact path='/word-to-draw' render={match => <WordToDraw {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
             <Route exact path='/profile' render={match => <Profile {...match} appState={this.state} />} />
             <Route exact path='/draw' render={match => <Draw {...match} appState={this.state}/>} />
-            <Route exact path='/try' component={tryCanvasSend} />
-            <Route exact path='/guess' component={tryCanvasReceive} />
+            <Route exact path='/game' render={match => <GameWrapper {...match} user={this.state.user} category={this.state.category}/>} />
           </Switch>
         )}
         {!user && (

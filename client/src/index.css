@@ -64,6 +64,25 @@ h4 {
   font-size: 2rem;
 }
 
+h5 {
+  font-size: 1.6rem;
+  font-family: 'Nanum Pen Script', cursive;
+}
+
+
+h6{
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 600;
+  line-height: 0rem;
+}
+
+ li{
+   list-style: none;
+   font-size: 1rem;
+   font-weight: 600;
+ }
+
 label {
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
@@ -72,6 +91,7 @@ label {
 }
 
 input[type="text"] {
+  outline: none;
   background-color: #C2EFF5;
 
 }
@@ -81,6 +101,13 @@ input[type="text"] {
   flex-direction: column;
   align-content: center;
   justify-content: space-evenly;
+}
+
+.flex2 {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  /* justify-content: space-evenly; */
 }
 
 .full{
@@ -133,7 +160,7 @@ script {
   z-index: 1;
   box-shadow: -0.5rem .5rem transparentize(rgb(16, 24, 50), 1);
   transform-origin: rigth top;
-  transition: all 200ms ease-in-out;
+  transition: all 180ms ease-in-out;
   min-width: 10rem
 }
 
@@ -246,7 +273,56 @@ script {
 }
 
 .gallery {
+  width:100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.chatBox{
+  height: 10vh;
+  overflow-y: scroll;
+  background-color: white;
+width:30vw;
+  padding:1.2rem;
+}
+
+
+
+.textForm{
+  margin-top: 2rem;
+}
+
+#userList{
+  margin-top: 2rem;
+}
+
+#cont{
+  max-height: 25vh;
+}
+
+.list-group-item{
+  padding: 0;
+}
+
+.send{
+  border: 3px rgb(16, 24, 50) solid;
+outline: none;
+  cursor: pointer;
+  width: 5rem;
+  padding: .4rem .7rem;
+  margin: 1.2rem;
+  box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
+  transform-origin: rigth top;
+  align-self: center;
+
+}
+
+.guess-input{
+  
+  background-color: #C2EFF5;
+  height: 1.4rem;
+  border: none;
+  border-bottom: 2.4px solid rgb(16, 24, 50);
+  min-width: 20vw;
 }
