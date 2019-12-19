@@ -130,10 +130,6 @@ input[type="text"] {
   min-width: 20vw;
 }
 
-script {
-  display: block;
-}
-
 .center {
   display: flex;
   justify-content: center;
