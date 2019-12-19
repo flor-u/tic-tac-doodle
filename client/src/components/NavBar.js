@@ -68,7 +68,7 @@ export default class NavBar extends Component {
       <Header>
         <Ul>
           <LiA>
-            <Link to='' onClick={this.removeUser}>
+            <Link to='' onClick={() => this.props.props.history.goBack()}>
               Back
             </Link>
           </LiA>

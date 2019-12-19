@@ -10,11 +10,6 @@ const bcrypt = require("bcrypt");
 const bcryptSalt = 3;
 const fs = require("fs");
 
-// router.get("/login", (req, res, next) => {
-//   res.render("auth/login", {
-//     "message": req.flash("error")
-//   });
-// });
 
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, failureDetails) => {
