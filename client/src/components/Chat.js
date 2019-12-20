@@ -36,14 +36,14 @@ export default class Chat extends Component {
 
 
   render() {
-  let users=[...new Set(this.props.list)]
+  // let users=[...new Set(this.props.list)]
     return (
       <div id='cont' className='flex'>
         {/* Lista de usuarios */}
         <div className='flex2'>
           <h5>Players</h5>
           <ul className='chatBox'>
-            {users.map((elem, idx) => {
+            {this.props.list.map((elem, idx) => {
               return elem === this.props.user ? (
                 <li key={idx}>
                   <b>{elem}</b>

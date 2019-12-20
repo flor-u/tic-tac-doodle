@@ -59,7 +59,9 @@ io.sockets.on('connection',
     
     socket.on("newUser", user => {
       console.log(`${user} connected`);
-      userList.push(user);
+      if(!userList.includes(user)){
+        userList.push(user);
+      }
       socket.emit("list", userList);
       socket.broadcast.emit("list", userList);
       
@@ -68,8 +70,6 @@ io.sockets.on('connection',
     });
 
     socket.on("messageSent", message => {
-      console.log(socket.nsp.connected)
-      console.log(message);
       
       socket.emit("newMessage", message);
       socket.broadcast.emit("newMessage", message);
@@ -81,8 +81,13 @@ io.sockets.on('connection',
       }
     );
 
-    socket.on('disconnect', function () {
+    socket.on('out', user => {
+      console.log(user)
       console.log(`Client has disconnected`);
+      userList = userList.filter(u=> u !== user)
+      socket.emit("list", userList);
+      socket.broadcast.emit("list", userList);
+
     });
   }
 );

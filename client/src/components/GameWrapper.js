@@ -5,7 +5,6 @@ import Chat from "./Chat";
 import Guess from "./Guess";
 import NavBar from "./NavBar";
 
-const connection = io.connect("http://localhost:4000");
 
 export default class GameWrapper extends Component {
   constructor(props) {
@@ -15,10 +14,10 @@ export default class GameWrapper extends Component {
       user: null,
       userID:null,
       category: this.props.category
-
+      
     };
+    this.socket = io.connect("http://localhost:4000");
 
-    this.socket = connection;
 
     this.socket.on("list", list => {
       console.log(list);
@@ -34,14 +33,22 @@ export default class GameWrapper extends Component {
     });
   };
 
-  componentDidMount() {
+  removeUser=(e)=>{
+    e.preventDefault()
+    let name =  this.state.user;
+    this.socket.emit('out', name)
+    this.props.history.push("/select")
+  }
+
+  componentDidMount=()=> {
     this.updateUserList(this.props.username)
   }
 
 
 
   render() {
-    console.log(this.state.user);
+
+    console.log(this.state);
     return this.state.userList[0]=== this.state.user ? (
       <div className='full cel'>
         <NavBar props={this.props}></NavBar>
@@ -65,6 +72,7 @@ export default class GameWrapper extends Component {
             <Guess socket={this.socket} user={this.state.user} props={this.props}></Guess>
           </div>
           <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
+          <button onClick={(e)=>{this.removeUser(e)}}>Leave Game</button>
         </div>
       </div>
     );
