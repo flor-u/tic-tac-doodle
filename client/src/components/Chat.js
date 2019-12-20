@@ -57,7 +57,7 @@ export default class Chat extends Component {
 
         {/* Box que contiene el chat */}
         <div className='flex2'>
-        <h5>What't the word?</h5>
+        <h5>What's the word?</h5>
           <div className='chatBox' id='chatBox'>
             {this.state.messages.map((elem, idx) => {
               return (

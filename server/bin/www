@@ -54,7 +54,7 @@ let userList = []
 io.sockets.on('connection',
  
   function (socket) {
-
+    
     console.log("We have a new client: " + socket.id);
     
     socket.on("newUser", user => {
@@ -63,7 +63,7 @@ io.sockets.on('connection',
       socket.emit("list", userList);
       socket.broadcast.emit("list", userList);
       
-      console.log(Object.keys(io.sockets.sockets))
+      console.log(userList)
      
     });
 

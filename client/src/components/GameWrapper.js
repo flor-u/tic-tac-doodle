@@ -13,17 +13,19 @@ export default class GameWrapper extends Component {
     this.state = {
       userList: [],
       user: null,
+      userID:null,
       category: this.props.category
+
     };
 
     this.socket = connection;
-    console.log(this.socket.client);
 
     this.socket.on("list", list => {
       console.log(list);
-      this.setState({ ...this.state, userList: list });
+      this.setState({ ...this.state, userList:list});
     });
   }
+  
 
   updateUserList = name => {
     this.setState({ ...this.state, user: name }, () => {
@@ -33,12 +35,14 @@ export default class GameWrapper extends Component {
   };
 
   componentDidMount() {
-    this.updateUserList(this.props.username);
+    this.updateUserList(this.props.username)
   }
 
+
+
   render() {
-    console.log(this.state);
-    return this.state.userList[this.state.userList.length - 1] === this.state.user ? (
+    console.log(this.state.user);
+    return this.state.userList[0]=== this.state.user ? (
       <div className='full cel'>
         <NavBar props={this.props}></NavBar>
         <div className='center'>
