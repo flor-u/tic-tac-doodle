@@ -81,6 +81,10 @@ io.sockets.on('connection',
       }
     );
 
+    socket.on('delete-canvas', erase=>{
+socket.broadcast.emit('delete-canvas', erase)
+    })
+
     socket.on('out', user => {
       console.log(user)
       console.log(`Client has disconnected`);
