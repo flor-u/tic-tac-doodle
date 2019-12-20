@@ -59,7 +59,11 @@ export default class SendCanvas extends Component {
     this.clockRef = ref;
   }
   onFinish() {
+    let resetCanvas = !this.state.erased
     this.wordList();
+    this.setState({
+        erased: true
+      });
   }
 
   //canvas//

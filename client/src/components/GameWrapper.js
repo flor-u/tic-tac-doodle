@@ -74,11 +74,9 @@ export default class GameWrapper extends Component {
           <div>
             <SendCanvas socket={this.socket} user={this.state.user} props={this.props}></SendCanvas>
           </div>
-          {/* <Guess socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></Guess> */}
           <div>
-            {" "}
+            
             <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
-           
           </div>
           <Button onClick={(e)=>{this.removeUser(e)}}>Leave Game</Button>
         </div>
@@ -88,13 +86,13 @@ export default class GameWrapper extends Component {
         <NavBar props={this.props}></NavBar>
         <div className='center'>
           <div>
-            {/* <SendCanvas socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></SendCanvas> */}
             <Guess socket={this.socket} user={this.state.user} props={this.props}></Guess>
           </div>
+          <div>
           <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
-         
         </div>
         <Button onClick={(e)=>{this.removeUser(e)}}>Leave Game</Button>
+      </div>
       </div>
     );
   }
