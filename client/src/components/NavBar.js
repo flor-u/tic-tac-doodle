@@ -33,7 +33,7 @@ const LiA = styled.li`
   color: inherit;
   margin: 1rem;
   text-align: right;
-  font-size: 1.2rem;
+  font-size: .9rem;
 `;
 
 export default class NavBar extends Component {

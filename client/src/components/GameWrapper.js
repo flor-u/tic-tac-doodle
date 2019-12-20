@@ -17,10 +17,10 @@ export default class GameWrapper extends Component {
     };
 
     this.socket = connection;
-    console.log(this.socket.client)
+    console.log(this.socket.client);
 
     this.socket.on("list", list => {
-      console.log(list)
+      console.log(list);
       this.setState({ ...this.state, userList: list });
     });
   }
@@ -32,36 +32,37 @@ export default class GameWrapper extends Component {
     });
   };
 
-componentDidMount(){
-  this.updateUserList(this.props.username)
-}
+  componentDidMount() {
+    this.updateUserList(this.props.username);
+  }
 
   render() {
-    console.log(this.state)
-    return (
-      this.state.userList[this.state.userList.length-1] === this.state.user ?
-      <div className='full cel'>
-        <NavBar props={this.props} ></NavBar>
-        <div className="flex center">
-        <div>
-        <SendCanvas socket={this.socket} user={this.state.user} props={this.props}></SendCanvas>
-        </div>
-        {/* <Guess socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></Guess> */}
-        <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
-      </div>
-      </div>
-      :
+    console.log(this.state);
+    return this.state.userList[this.state.userList.length - 1] === this.state.user ? (
       <div className='full cel'>
         <NavBar props={this.props}></NavBar>
-        <div className="flex center">
-        <div>
-        {/* <SendCanvas socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></SendCanvas> */}
-        <Guess socket={this.socket}  user={this.state.user} props={this.props}></Guess>
+        <div className='center'>
+          <div>
+            <SendCanvas socket={this.socket} user={this.state.user} props={this.props}></SendCanvas>
+          </div>
+          {/* <Guess socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></Guess> */}
+          <div>
+            {" "}
+            <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
+          </div>
         </div>
-        <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
       </div>
+    ) : (
+      <div className='full cel'>
+        <NavBar props={this.props}></NavBar>
+        <div className='center'>
+          <div>
+            {/* <SendCanvas socket={this.socket} list={this.state.userList} user={this.state.user} props={this.props}></SendCanvas> */}
+            <Guess socket={this.socket} user={this.state.user} props={this.props}></Guess>
+          </div>
+          <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
+        </div>
       </div>
-
     );
   }
 }

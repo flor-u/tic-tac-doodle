@@ -22,7 +22,11 @@ outline: none;
   transform-origin: rigth top;
   font-family: 'Nanum Pen Script', cursive;
   font-size: 1.6rem;
-`
+  &:active{
+    transform: translateY(4px);
+    box-shadow: 0 1px rgb(16, 24, 50);}
+`;
+
 
 export default class Canvas extends Component {
   constructor(props) {

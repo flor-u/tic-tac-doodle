@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Sketch from "./Sketch";
 import Words from "../words.json";
 import styled from "styled-components";
+import Clock from "./Clock";
 
 const ButtonWrapper = styled.div`
   display: flex;
@@ -16,11 +17,17 @@ const Button = styled.button`
   outline: none;
   cursor: pointer;
   min-width: 2rem;
-  padding: 0.4rem 0.7rem;
+  padding: 0.5rem 1rem;
   box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
   transform-origin: rigth top;
   font-family: 'Nanum Pen Script', cursive;
-  font-size: 1.6rem;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+
+  &:active{
+    transform: translateY(4px);
+    box-shadow: 0 1px rgb(16, 24, 50);}
 `;
 
 export default class SendCanvas extends Component {
@@ -29,10 +36,30 @@ export default class SendCanvas extends Component {
     this.state = {
       user: this.props.user,
       words: [...Words],
-      word: ""
+      word: "",
+      erased: false
     };
 
     this.socket = this.props.socket;
+    this.setClockRef = this.setClockRef.bind(this);
+    this.start = this.start.bind(this);
+    this.pause = this.pause.bind(this);
+  }
+
+  //clock//
+  start() {
+    this.clockRef.start();
+  }
+
+  pause() {
+    this.clockRef.pause();
+  }
+
+  setClockRef(ref) {
+    this.clockRef = ref;
+  }
+  onFinish() {
+    this.wordList();
   }
 
   //canvas//
@@ -48,6 +75,11 @@ export default class SendCanvas extends Component {
       p5.strokeWeight(6);
       p5.frameRate(60);
       this.sendmouse(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY); // Nothing
+    }
+    if (this.state.erased) {
+      p5.clear();
+      p5.setup();
+      this.setState({ erased: false });
     }
   };
 
@@ -72,28 +104,37 @@ export default class SendCanvas extends Component {
   }
 
   erase = e => {
-    this.setState({
-      erased: true
-    });
+    e.preventDefault();
+    // this.setState({
+    //   erased: true
+    // });
   };
 
   render() {
     return (
       <div className='flex center'>
         <ButtonWrapper>
-        <h5 >Try drawing</h5>
-        <div className='no-margin center'>
-        <h4>{this.state.word}</h4>
-        </div>
-          <Button className='bg yel' onClick={this.erase}>
+          {/* <h5 >Try drawing</h5> */}
+          <div className='third'>
+            <h4>{this.state.word}</h4>
+          </div>
+          <div className='third'>
+            <Clock onFinish={() => this.onFinish()} refCallback={this.setClockRef} time='100'></Clock>
+          </div>
+
+          <div className='third'>
+            <Button className='bg yel' onClick={this.start}>
+              Start
+            </Button>
+            {/* <Button className='bg yel' onClick={(e) => this.erase(e)}>
             x
-          </Button>
+          </Button> */}
+          </div>
         </ButtonWrapper>
         <div id='pictionary'>
           <Sketch setup={this.setup} draw={this.draw} sendmouse={this.sendmouse}></Sketch>
         </div>
       </div>
-      // </div>
     );
   }
 }

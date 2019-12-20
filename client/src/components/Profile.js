@@ -51,8 +51,8 @@ export default class Profile extends Component {
         <NavBar props={this.props}></NavBar>
         <div className='flex'>
           <div>
-            <h4>Hi, {this.state.user.username}</h4>
-            <h3>Your saved doodles</h3>
+            <h2>Hi, {this.state.user.username}</h2>
+            <h5>Your saved doodles</h5>
           </div>
           <div className='gallery'>
             {this.state.user.doodles.map((doodle, idx) => {

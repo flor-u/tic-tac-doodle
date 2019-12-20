@@ -38,11 +38,11 @@ export default class Chat extends Component {
   render() {
   let users=[...new Set(this.props.list)]
     return (
-      <div id='cont' className='gallery'>
+      <div id='cont' className='flex'>
         {/* Lista de usuarios */}
         <div className='flex2'>
           <h5>Players</h5>
-          <ul className='chatbox'>
+          <ul className='chatBox'>
             {users.map((elem, idx) => {
               return elem === this.props.user ? (
                 <li key={idx}>
@@ -57,7 +57,7 @@ export default class Chat extends Component {
 
         {/* Box que contiene el chat */}
         <div className='flex2'>
-        <h5>Attempts</h5>
+        <h5>What't the word?</h5>
           <div className='chatBox' id='chatBox'>
             {this.state.messages.map((elem, idx) => {
               return (
@@ -69,7 +69,7 @@ export default class Chat extends Component {
           </div>
 
           {/* Input para nuevos mensajes */}
-          <div className='textForm'>
+          <div className='flex2'>
             <InputGuess info={this.sendMessage}></InputGuess>
           </div>
         </div>
