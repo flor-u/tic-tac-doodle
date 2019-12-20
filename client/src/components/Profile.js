@@ -34,7 +34,7 @@ export default class Profile extends Component {
     });
   };
 
-  componentDidMount = () => {
+  componentWillMount = () => {
     this.updateDoodleList();
   };
 
@@ -49,10 +49,10 @@ export default class Profile extends Component {
     return (
       <div className='full'>
         <NavBar props={this.props}></NavBar>
-        <div className='flex'>
+        <div className='padding'>
           <div>
             <h2>Hi, {this.state.user.username}</h2>
-            <h5>Your saved doodles</h5>
+            <h5><a  className='doodles-link' href="" onClick={()=> this.updateDoodleList()}>Your saved doodles</a></h5>
           </div>
           <div className='gallery'>
             {this.state.user.doodles.map((doodle, idx) => {

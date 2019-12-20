@@ -19,11 +19,20 @@ body {
   height: 100vh;
 }
 
+.doodles-link{
+  font-size: 1.8rem;
+  font-family: 'Nanum Pen Script', cursive;
+  margin-bottom:2rem;
+  text-align: left;
+  letter-spacing: 0.08rem;
+  line-height: 4rem;
+}
+
 a {
   text-decoration: none;
   color: rgb(16, 24, 50);
   font-weight: 500;
-  font-size: .9rem;
+
 }
 
 h1 {
@@ -94,6 +103,9 @@ input[type="text"] {
   outline: none;
   background-color: #C2EFF5;
 
+}
+.padding{
+padding: 2rem;
 }
 
 .flex {
@@ -285,6 +297,7 @@ width:33%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  
 }
 
 

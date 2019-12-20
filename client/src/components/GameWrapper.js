@@ -34,7 +34,7 @@ export default class GameWrapper extends Component {
       category: this.props.category
       
     };
-    this.socket = io.connect("http://localhost:4000");
+    this.socket = io.connect("https://tic-tac-doodle.herokuapp.com/");
 
 
     this.socket.on("list", list => {
