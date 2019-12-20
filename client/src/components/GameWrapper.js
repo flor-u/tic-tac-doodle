@@ -4,7 +4,25 @@ import SendCanvas from "./SendCanvas";
 import Chat from "./Chat";
 import Guess from "./Guess";
 import NavBar from "./NavBar";
+import styled from "styled-components";
 
+const Button = styled.button`
+  border: 3px rgb(16, 24, 50) solid;
+  outline: none;
+  cursor: pointer;
+  min-width: 2rem;
+  padding: 0.5rem 1rem;
+  box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
+  transform-origin: rigth top;
+  font-family: 'Nanum Pen Script', cursive;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 0.05rem;
+
+  &:active{
+    transform: translateY(4px);
+    box-shadow: 0 1px rgb(16, 24, 50);}
+`;
 
 export default class GameWrapper extends Component {
   constructor(props) {
@@ -60,7 +78,9 @@ export default class GameWrapper extends Component {
           <div>
             {" "}
             <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
+           
           </div>
+          <Button onClick={(e)=>{this.removeUser(e)}}>Leave Game</Button>
         </div>
       </div>
     ) : (
@@ -72,8 +92,9 @@ export default class GameWrapper extends Component {
             <Guess socket={this.socket} user={this.state.user} props={this.props}></Guess>
           </div>
           <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
-          <button onClick={(e)=>{this.removeUser(e)}}>Leave Game</button>
+         
         </div>
+        <Button onClick={(e)=>{this.removeUser(e)}}>Leave Game</Button>
       </div>
     );
   }
