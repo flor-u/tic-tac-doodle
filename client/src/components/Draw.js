@@ -67,8 +67,8 @@ getImage(image){
       <NavBar props={this.props}></NavBar>
       <div className='flex center'>
         <Clock onFinish={() => this.onFinish()} refCallback={this.setClockRef} time='100'></Clock>
-        <button onClick={this.start}>Start Clock</button>
-        <button onClick={this.pause}>Pause Clock</button>
+        {/* <button onClick={this.start}>Start Clock</button>
+        <button onClick={this.pause}>Pause Clock</button> */}
         <div>
           <Canvas props={this.state} image={(image) => this.getImage(image)}></Canvas>
         </div>

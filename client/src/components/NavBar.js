@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 const Header = styled.header`
 background-color: #C2EFF5;
-  border-bottom: .6rem solid #AEDBE1;
+  border-bottom: .6rem ridge #C2EFF5;
   box-shadow: 0px 1px 1px 0px rgba(16,24,50,.2);
   display: flex;
   align-items: center;
@@ -33,7 +33,7 @@ const LiA = styled.li`
   color: inherit;
   margin: 1rem;
   text-align: right;
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 `;
 
 export default class NavBar extends Component {
@@ -41,22 +41,16 @@ export default class NavBar extends Component {
     super(props);
     this.authService = new AuthService();
     console.log(this.props)
-
-    this.socket = this.props.socket;
   
   }
 
-  removeUser(){
-    let user= this.props.props.appState.user.username
-    this.socket.emit('disconnect', user)
-    this.props.props.history.goBack()
-  }
   
   logoutUser = () => {
     this.authService
       .logout()
       .then(x => this.props.setUser(false))
       .then(x => this.props.setCategory({ category: "", gameType: "" }))
+      
       .catch(err => console.log(err));
   };
 

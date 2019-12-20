@@ -17,6 +17,7 @@ export default class GameWrapper extends Component {
     };
 
     this.socket = connection;
+    console.log(this.socket.client)
 
     this.socket.on("list", list => {
       console.log(list)
@@ -24,38 +25,23 @@ export default class GameWrapper extends Component {
     });
   }
 
-  // Este método recibe un NickName del Input de la portada
-  // Realiza un ".emit" al server para que lo añada a la lista de usuarios.
-  // Nos redirije a "/chat"
   updateUserList = name => {
-    // if (name.trim() !== "") {
     this.setState({ ...this.state, user: name }, () => {
       this.socket.emit("newUser", name);
       console.log(this.state);
-      // this.props.history.push("/chat");
     });
-    // }
   };
 
-  
-
-  //esto no esta bien
 componentDidMount(){
-  // console.log(this.props.user.username)
   this.updateUserList(this.props.username)
 }
-  //   componentDidMount(){
-  //     console.log(this.props.user.username)
-  // this.updateUserList(this.props.user.username)
-  //   }
 
   render() {
     console.log(this.state)
-    //conditional render if host or guest ? SendCanvas:Guess
     return (
-      this.state.userList[0] === this.state.user ?
+      this.state.userList[this.state.userList.length-1] === this.state.user ?
       <div className='full cel'>
-        <NavBar props={this.props} socket={this.socket}></NavBar>
+        <NavBar props={this.props} ></NavBar>
         <div className="flex center">
         <div>
         <SendCanvas socket={this.socket} user={this.state.user} props={this.props}></SendCanvas>

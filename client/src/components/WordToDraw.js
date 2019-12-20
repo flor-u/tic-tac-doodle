@@ -13,15 +13,13 @@ export default class WordToDraw extends Component {
           timeFinish: false,
           word:''
         };
-        console.log(this.props.appState.category)
+        console.log(this.props)
       }
 
 
     wordList = () => {
-        let category = [...this.state.words[0].medium]; //array containing 100 words of selected category
+        let category = [...this.state.words[0].medium]; 
         let word = category[Math.floor(Math.random()*category.length)];
-    //     // const shuffled = category.sort(() => 0.5 - Math.random());//shuffles the array's elemnts
-    //     // let selected = shuffled.slice(0, 10);// Get sub-array of first 10 elements after shuffled
         this.setState({'word': word});
       };
 
@@ -31,6 +29,8 @@ export default class WordToDraw extends Component {
 
 
     render() {
+        const path= this.props.match.path
+        console.log(path)
         return (
             <div className='full' >
             <NavBar props={this.props}></NavBar>

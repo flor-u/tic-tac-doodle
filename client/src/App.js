@@ -27,7 +27,7 @@ class App extends React.Component {
 
   state = {
     user: null,
-    category: "", //from what list the user will be drawing
+    category: "", 
     userList:[]
   };
 

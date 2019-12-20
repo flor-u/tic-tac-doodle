@@ -11,7 +11,7 @@ body {
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
   /* font-family: 'Nanum Pen Script', cursive; */
-  font-size: 20px;
+  font-size: 10px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
@@ -36,17 +36,8 @@ h1 {
   font-feature-settings: 'kern'off;
 
 }
-
-h2 {
-  color: #FDED01;
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 3rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-feature-settings: 'kern'off;
-
+.login-svg{
+  margin-bottom: 4rem;
 }
 
 h3 {
@@ -62,6 +53,8 @@ h3 {
 
 h4 {
   font-size: 2rem;
+  line-height: 0rem;
+  text-align: center;
 }
 
 h5 {
@@ -113,6 +106,12 @@ input[type="text"] {
 .full {
   width: 100vw;
   height: 100vh;
+}
+
+.no-margin{
+width:12rem;
+margin: 0 auto;
+
 }
 
 .cel {

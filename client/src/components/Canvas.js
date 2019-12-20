@@ -16,10 +16,12 @@ border: 3px rgb(16, 24, 50) solid;
 outline: none;
   cursor: pointer;
   min-width: 2rem;
-  padding: .4rem .7rem;
+  padding: .4rem 1rem;
   margin: auto 2rem;
   box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
   transform-origin: rigth top;
+  font-family: 'Nanum Pen Script', cursive;
+  font-size: 1.6rem;
 `
 
 export default class Canvas extends Component {
