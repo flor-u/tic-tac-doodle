@@ -81,9 +81,12 @@ export default class SendCanvas extends Component {
       this.sendmouse(p5.mouseX, p5.mouseY, p5.pmouseX, p5.pmouseY); // Nothing
     }
     if (this.state.erased) {
+      console.log('a')
+      let erase= true;
       p5.clear();
       p5.setup();
       this.setState({ erased: false });
+      this.socket.emit('delete-canvas', erase)
     }
   };
 

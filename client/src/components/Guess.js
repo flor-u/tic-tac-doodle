@@ -9,11 +9,23 @@ export default class Guess extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      // user: this.props.user
+      erased: ''
     };
     this.socket = this.props.socket;
+
+    
+      this.socket.on('delete-canvas', erase=>{
+        console.log('b')
+        erase= true
+        this.setState({
+          erased: erase
+        });
+      }
+      
+      )
   }
   //canvas//
+
   setup = p5 => {
     p5.createCanvas(500, 350)
     .parent("pictionary");
@@ -28,6 +40,7 @@ export default class Guess extends Component {
     });
   };
 
+  
   //chat//
 
   render() {
