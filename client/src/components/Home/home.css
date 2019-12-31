@@ -1,0 +1,26 @@
+h3 {
+  color: rgb(16, 24, 50);
+  font-size: 2.6rem;
+  font-family: 'Nanum Pen Script', cursive;
+  text-align: center;
+  line-height: 3rem;
+  margin: 0;
+}
+
+.container {
+  font-size: 10px;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border: .6rem solid #C2EFF5;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-evenly;
+  height: 100%;
+}

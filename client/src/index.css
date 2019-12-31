@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,900|Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,900|Nanum+Pen+Script|IBM+Plex+Mono:400,600&display=swap');
 
 body {
   color: rgb(16, 24, 50);
@@ -10,7 +10,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'IBM Plex Mono', monospace;
   /* font-family: 'Nanum Pen Script', cursive; */
   font-size: 10px;
   -webkit-font-smoothing: antialiased;
@@ -19,20 +19,11 @@ body {
   height: 100vh;
 }
 
-.doodles-link{
-  font-size: 1.8rem;
-  font-family: 'Nanum Pen Script', cursive;
-  margin-bottom:2rem;
-  text-align: left;
-  letter-spacing: 0.08rem;
-  line-height: 4rem;
-}
 
 a {
   text-decoration: none;
   color: rgb(16, 24, 50);
   font-weight: 500;
-
 }
 
 h1 {
@@ -41,7 +32,6 @@ h1 {
   font-weight: 900;
   font-size: 3rem;
   letter-spacing: 0.08em;
-
 }
 
 h2{
@@ -61,7 +51,6 @@ h3 {
   font-weight: 500;
   line-height: 3rem;
   margin: 1rem;
-
 }
 
 h4 {
@@ -99,11 +88,11 @@ label {
   margin-bottom: .5rem;
 }
 
-input[type="text"] {
+/* input[type="text"] {
   outline: none;
   background-color: #C2EFF5;
 
-}
+} */
 .padding{
 padding: 2rem;
 }
@@ -113,21 +102,11 @@ padding: 2rem;
   flex-direction: column;
   align-content: center;
   justify-content: space-evenly;
-  padding: 2rem;
 }
 
 #cont{
  margin-left: 2rem;
 }
-
-.flex2 {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  /* justify-content: space-evenly; */
-}
-
-
 
 .full {
   width: 100vw;
@@ -292,14 +271,6 @@ width:33%;
   font-size: 1.6rem;
 }
 
-.gallery {
-  width: 100vw;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  
-}
-
 
 .textForm {
   margin-top: 2rem;
@@ -339,20 +310,19 @@ width:33%;
 }
 
 .doodleCard{
-  
   width: 16rem;
   border: 3px solid rgb(16, 24, 50);
     margin-bottom: 1.2rem;
     display: block;
-    position: relative;  
+    position: relative; 
+    box-shadow: rgba(0, 0, 0, 0.5) -8px 8px; 
 }
 
+/* 
 .doodleCard::before,
 .doodleCard::after {
   content: '';
     position: absolute;
-     
-  
 }
 
 .doodleCard::before {
@@ -362,7 +332,6 @@ width:33%;
     height: 102%;
     background: #FDED01;
     transform: skewY(-45deg);
-    
 }
 
 .doodleCard::after {
@@ -375,7 +344,7 @@ width:33%;
     right: 3px;
     transform: skewX(-45deg); 
 }
-
+ */
 
 .chatBox {
   overflow-y: scroll;

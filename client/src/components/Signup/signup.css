@@ -1,0 +1,51 @@
+.containerA {
+    font-size: 10px;
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    border: .6rem solid #C2EFF5;
+}
+
+.flex {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.login-svg {
+    margin-bottom: 4rem;
+}
+
+input {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    background-color: #fffffd;
+    margin-bottom: 3.5rem;
+    height: 2.8rem;
+    border: 2.4px solid rgb(16, 24, 50);
+    width: 28vw;
+    overflow: visible;
+}
+input:active{
+  font-family: 'IBM Plex Mono', monospace;
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    max-width: 40vw;
+}
+
+label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 1rem;
+    text-align: left;
+    margin-bottom: .5rem;
+}

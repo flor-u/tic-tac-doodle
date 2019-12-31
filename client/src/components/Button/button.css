@@ -1,0 +1,47 @@
+.butn {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1rem;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+    display: inline-block;
+    padding: 1.2rem 1.6rem;
+    margin: auto 2rem;
+    position: relative;
+    align-self: center;
+    border: 3px solid rgb(16, 24, 50);
+    transform-origin: rigth top;
+    transition: all 180ms ease-in-out;
+    min-width: 10rem;
+    box-shadow:
+      -1px 1px 0px 0px rgb(16, 24, 50),
+      -2px 2px 0px 0px rgb(16, 24, 50),
+      -3px 3px 0px 0px rgb(16, 24, 50),
+      -4px 4px 0px 0px rgb(16, 24, 50),
+      -5px 5px 0px 0px rgb(16, 24, 50),
+      -6px 6px 0px 0px rgb(16, 24, 50),
+      -7px 7px 0px 0px rgb(16, 24, 50),
+      -8px 8px 0px 0px rgb(16, 24, 50);
+  }
+  
+  .butn:active {
+    border-image-slice: 1;
+    background-size: 90%;
+    transform: translate(-0.5rem, 0.5rem);
+  }
+  
+  .inside {
+    background-color: #C2EFF5;
+  }
+  
+  .inside>a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(16, 24, 50);
+  }
+  
+  .inside:hover {
+    border-image: none;
+    background-color: #FDED01;
+  }

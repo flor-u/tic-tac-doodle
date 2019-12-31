@@ -1,19 +1,10 @@
 import React, { Component } from "react";
-import Doodle from "./Doodle";
-import AuthService from "../services/AuthService";
-import NavBar from "./NavBar";
+import Doodle from "../Doodle";
+import AuthService from "../../services/AuthService";
+import NavBar from "../NavBar/NavBar";
 import styled from 'styled-components'
+import './profile.css'
 
-const Button= styled.button`
-border: 3px rgb(16, 24, 50) solid;
-outline: none;
-  cursor: pointer;
-  min-width: 2rem;
-  padding: .4rem .7rem;
-  margin: auto 2rem;
-  box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
-  transform-origin: rigth top;
-`
 export default class Profile extends Component {
   constructor(props) {
     super(props);
@@ -47,12 +38,12 @@ export default class Profile extends Component {
 
   render() {
     return (
-      <div className='full'>
+      <div className='container'>
         <NavBar props={this.props}></NavBar>
-        <div className='padding'>
+        <div className='home'>
           <div>
             <h2>Hi, {this.state.user.username}</h2>
-            <h5><a  className='doodles-link' href="" onClick={()=> this.updateDoodleList()}>Your saved doodles</a></h5>
+            <h5><a className='doodles-link' href="" onClick={()=> this.updateDoodleList()}>Your saved doodles</a></h5>
           </div>
           <div className='gallery'>
             {this.state.user.doodles.map((doodle, idx) => {
@@ -60,9 +51,9 @@ export default class Profile extends Component {
                 <div key={idx}>
                   
                   <Doodle doodle={doodle} user={this.state.user} />
-                  <Button className='bg yel' value={idx} onClick={e => this.deleteDoodle(e)}>
+                  <button className='bg yel' value={idx} onClick={e => this.deleteDoodle(e)}>
                     X
-                  </Button>
+                  </button>
                 </div>
               );
             })}

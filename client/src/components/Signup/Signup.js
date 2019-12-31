@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-// import PageTitle from '../../fontStyles/PageTitle'
-import AuthService from '../services/AuthService'
-// import { Card, CardTitle, Form } from '../../styles/card';
+import AuthService from '../../services/AuthService'
+import './signup.css'
+import Button from '../Button/Button';
 
 export default class Access extends Component {
   constructor(props) {
@@ -33,25 +33,11 @@ export default class Access extends Component {
     )
   }
 
-  handleUpload = (e) => {
-    const uploadData = new FormData();
-    uploadData.append('image', e.target.files[0])
-    this.authService.upload(uploadData)
-    .then(
-      (data) => {
-        this.setState({...this.state, image: data.secure_url})
-      },
-      (error) => {
-        console.error(error)
-      }
-    )
-  }
-
   render() {
     const { username, password} = this.state;
     return (
-      <div className="full">
-        <div className='flex center'>
+      <div className="containerA">
+        <div className="flex">
         <div className="login-svg">
         <svg width="230" viewBox="0 0 186 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M14.532 30.576C12.444 30.576 10.404 30.348 8.41198 29.892C6.44398 29.412 4.82398 28.776 3.55198 27.984L6.28798 21.792C7.48798 22.488 8.83198 23.052 10.32 23.484C11.808 23.892 13.236 24.096 14.604 24.096C15.78 24.096 16.62 23.988 17.124 23.772C17.628 23.532 17.88 23.184 17.88 22.728C17.88 22.2 17.544 21.804 16.872 21.54C16.224 21.276 15.144 20.988 13.632 20.676C11.688 20.268 10.068 19.836 8.77198 19.38C7.47598 18.9 6.34798 18.132 5.38798 17.076C4.42798 15.996 3.94798 14.544 3.94798 12.72C3.94798 11.136 4.39198 9.696 5.27998 8.4C6.16798 7.104 7.48798 6.084 9.23998 5.34C11.016 4.596 13.164 4.224 15.684 4.224C17.412 4.224 19.104 4.416 20.76 4.8C22.44 5.16 23.916 5.7 25.188 6.42L22.632 12.576C20.16 11.328 17.82 10.704 15.612 10.704C13.428 10.704 12.336 11.232 12.336 12.288C12.336 12.792 12.66 13.176 13.308 13.44C13.956 13.68 15.024 13.944 16.512 14.232C18.432 14.592 20.052 15.012 21.372 15.492C22.692 15.948 23.832 16.704 24.792 17.76C25.776 18.816 26.268 20.256 26.268 22.08C26.268 23.664 25.824 25.104 24.936 26.4C24.048 27.672 22.716 28.692 20.94 29.46C19.188 30.204 17.052 30.576 14.532 30.576ZM35.9961 4.8H44.4921V30H35.9961V4.8ZM72.4501 16.716H79.8301V27.372C78.3421 28.404 76.6141 29.196 74.6461 29.748C72.6781 30.3 70.7461 30.576 68.8501 30.576C66.1621 30.576 63.7501 30.024 61.6141 28.92C59.4781 27.792 57.7981 26.232 56.5741 24.24C55.3741 22.224 54.7741 19.944 54.7741 17.4C54.7741 14.856 55.3741 12.588 56.5741 10.596C57.7981 8.58 59.4901 7.02 61.6501 5.916C63.8341 4.788 66.2941 4.224 69.0301 4.224C71.5021 4.224 73.7101 4.644 75.6541 5.484C77.6221 6.3 79.2541 7.5 80.5501 9.084L75.1141 13.872C73.5301 12.024 71.6461 11.1 69.4621 11.1C67.5901 11.1 66.1021 11.664 64.9981 12.792C63.8941 13.92 63.3421 15.456 63.3421 17.4C63.3421 19.296 63.8821 20.82 64.9621 21.972C66.0661 23.124 67.5301 23.7 69.3541 23.7C70.4341 23.7 71.4661 23.496 72.4501 23.088V16.716ZM115.49 4.8V30H108.506L98.9301 18.552V30H90.6501V4.8H97.6341L107.21 16.248V4.8H115.49ZM138.844 30.576C134.98 30.576 131.968 29.532 129.808 27.444C127.648 25.356 126.568 22.428 126.568 18.66V4.8H135.064V18.408C135.064 20.256 135.388 21.6 136.036 22.44C136.708 23.28 137.668 23.7 138.916 23.7C140.164 23.7 141.112 23.28 141.76 22.44C142.432 21.6 142.768 20.256 142.768 18.408V4.8H151.12V18.66C151.12 22.428 150.04 25.356 147.88 27.444C145.72 29.532 142.708 30.576 138.844 30.576ZM174.346 4.8C176.674 4.8 178.702 5.184 180.43 5.952C182.158 6.72 183.49 7.824 184.426 9.264C185.362 10.704 185.83 12.384 185.83 14.304C185.83 16.224 185.362 17.904 184.426 19.344C183.49 20.784 182.158 21.888 180.43 22.656C178.702 23.424 176.674 23.808 174.346 23.808H170.71V30H162.214V4.8H174.346ZM173.806 17.256C174.958 17.256 175.822 17.004 176.398 16.5C176.974 15.972 177.262 15.24 177.262 14.304C177.262 13.368 176.974 12.648 176.398 12.144C175.822 11.616 174.958 11.352 173.806 11.352H170.71V17.256H173.806Z" fill="#FDED01"/>
@@ -59,12 +45,12 @@ export default class Access extends Component {
 </svg>
 </div>
       {/* <h2>Sign Up</h2> */}
-        <form onSubmit={this.handleSignUp} className='flex'>
+        <form onSubmit={this.handleSignUp} className='form'>
           <label htmlFor="username">username </label>
-          <input className='margin-bottom' type="text" name="username" value={username} required onChange={this.handleChange}/>
+          <input type="text" name="username" value={username} required onChange={this.handleChange}/>
           <label htmlFor="password">password </label>
-          <input className='margin-bottom'type="password" value={password} name="password" required onChange={this.handleChange}/>
-          <button className="btn cta bg" type="submit" value="Create account">Create account</button>
+          <input type="password" value={password} name="password" required onChange={this.handleChange}/>
+          <Button label={'create account'} type="submit" value="create account"/>
         </form>
       </div>
       </div>

@@ -5,19 +5,19 @@ import AuthService from "./services/AuthService";
 
 import "./App.css";
 
-import Home from "./components/Home";
+import Home from "./components/Home/Home";
 
-import Signup from "./components/Signup";
+import Signup from "./components/Signup/Signup";
 import Login from "./components/Login";
 
-import Profile from "./components/Profile";
+import Profile from "./components/Profile/Profile";
 
 import Draw from "./components/Draw";
 import ChooseGame from "./components/ChooseGame";
-import WordToDraw from "./components/WordToDraw";
+import WordToDraw from "./components/Word/WordToDraw";
 
 import GameWrapper from "./components/GameWrapper";
-import Select from "./components/Select";
+import Select from "./components/Select/Select";
 
 class App extends React.Component {
   constructor(props) {

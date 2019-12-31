@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 import Canvas from "./Canvas";
 import Clock from "./Clock";
 import AuthService from "../services/AuthService";
-import NavBar from "./NavBar";
+import NavBar from "./NavBar/NavBar";
 
 export default class Draw extends Component {
   constructor(props) {

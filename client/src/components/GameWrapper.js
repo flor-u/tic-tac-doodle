@@ -3,7 +3,7 @@ import io from "socket.io-client";
 import SendCanvas from "./SendCanvas";
 import Chat from "./Chat";
 import Guess from "./Guess";
-import NavBar from "./NavBar";
+import NavBar from "./NavBar/NavBar";
 import styled from "styled-components";
 
 const Button = styled.button`

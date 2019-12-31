@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import AuthService from '../services/AuthService'
-
-
-
+import './Signup/signup.css'
+import Button from './Button/Button';
 
 export default class Login extends Component {
   constructor(props) {
@@ -42,8 +41,8 @@ export default class Login extends Component {
    console.log(this.state)
     const { username, password } = this.state;
     return (
-      <div className="full">
-        <div className='flex center'>
+      <div className="containerA">
+        <div className='flex'>
         <div className='login-svg'>
         <svg width="200" viewBox="0 0 151 31" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3.69107 4.8H12.1871V23.412H23.5631V30H3.69107V4.8ZM46.3218 30.576C43.6098 30.576 41.1738 30.012 39.0138 28.884C36.8538 27.756 35.1618 26.196 33.9378 24.204C32.7138 22.188 32.1018 19.92 32.1018 17.4C32.1018 14.88 32.7138 12.624 33.9378 10.632C35.1618 8.616 36.8538 7.044 39.0138 5.916C41.1738 4.788 43.6098 4.224 46.3218 4.224C49.0338 4.224 51.4698 4.788 53.6298 5.916C55.7898 7.044 57.4818 8.616 58.7058 10.632C59.9298 12.624 60.5418 14.88 60.5418 17.4C60.5418 19.92 59.9298 22.188 58.7058 24.204C57.4818 26.196 55.7898 27.756 53.6298 28.884C51.4698 30.012 49.0338 30.576 46.3218 30.576ZM46.3218 23.7C47.3778 23.7 48.3258 23.448 49.1658 22.944C50.0298 22.416 50.7138 21.684 51.2178 20.748C51.7218 19.788 51.9738 18.672 51.9738 17.4C51.9738 16.128 51.7218 15.024 51.2178 14.088C50.7138 13.128 50.0298 12.396 49.1658 11.892C48.3258 11.364 47.3778 11.1 46.3218 11.1C45.2658 11.1 44.3058 11.364 43.4418 11.892C42.6018 12.396 41.9298 13.128 41.4258 14.088C40.9218 15.024 40.6698 16.128 40.6698 17.4C40.6698 18.672 40.9218 19.788 41.4258 20.748C41.9298 21.684 42.6018 22.416 43.4418 22.944C44.3058 23.448 45.2658 23.7 46.3218 23.7ZM87.4934 16.716H94.8734V27.372C93.3854 28.404 91.6574 29.196 89.6894 29.748C87.7214 30.3 85.7894 30.576 83.8934 30.576C81.2054 30.576 78.7934 30.024 76.6574 28.92C74.5214 27.792 72.8414 26.232 71.6174 24.24C70.4174 22.224 69.8174 19.944 69.8174 17.4C69.8174 14.856 70.4174 12.588 71.6174 10.596C72.8414 8.58 74.5334 7.02 76.6934 5.916C78.8774 4.788 81.3374 4.224 84.0734 4.224C86.5454 4.224 88.7534 4.644 90.6974 5.484C92.6654 6.3 94.2974 7.5 95.5934 9.084L90.1574 13.872C88.5734 12.024 86.6894 11.1 84.5054 11.1C82.6334 11.1 81.1454 11.664 80.0414 12.792C78.9374 13.92 78.3854 15.456 78.3854 17.4C78.3854 19.296 78.9254 20.82 80.0054 21.972C81.1094 23.124 82.5734 23.7 84.3974 23.7C85.4774 23.7 86.5094 23.496 87.4934 23.088V16.716ZM105.693 4.8H114.189V30H105.693V4.8ZM150.319 4.8V30H143.335L133.759 18.552V30H125.479V4.8H132.463L142.039 16.248V4.8H150.319Z" fill="#FDED01"/>
@@ -52,12 +51,12 @@ export default class Login extends Component {
 </div>
 
         {/* <h2>Login</h2> */}
-          <form onSubmit={this.handleLogin} className='flex'>
+          <form onSubmit={this.handleLogin} className='form'>
             <label htmlFor="username">username </label>
-            <input className='margin-bottom' type="text" name="username" value={username} required onChange={this.handleChange}/>
+            <input type="text" name="username" value={username} required onChange={this.handleChange}/>
             <label htmlFor="password">password </label>
-            <input className='margin-bottom' type="password" value={password} name="password" required onChange={this.handleChange}/>
-            <button className="btn cta bg" type="submit" value="Login">Login</button>
+            <input type="password" value={password} name="password" required onChange={this.handleChange}/>
+            <Button label={'login'} type="submit" value="Login"/>
           </form>
         </div>
         </div>

@@ -1,8 +1,12 @@
 
 import React, { Component } from 'react'
 import { Link } from "react-router-dom";
-import Words from "../words.json";
-import NavBar from './NavBar.js';
+import Words from "../../words.json";
+import NavBar from '../NavBar/NavBar.js';
+import Button from '../Button/Button.js';
+import './word.css'
+
+
 
 export default class WordToDraw extends Component {
     constructor(props) {
@@ -32,9 +36,9 @@ export default class WordToDraw extends Component {
         const path= this.props.match.path
         console.log(path)
         return (
-            <div className='full' >
+            <div className='container' >
             <NavBar props={this.props}></NavBar>
-            <div className='flex2 center bottom'>
+            <div className='flex2'>
             <div>
             <svg width="100" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0)">
@@ -63,7 +67,7 @@ export default class WordToDraw extends Component {
 
             <h3>You have 20 seconds to draw</h3>
                 <h1 className='words'>{this.state.word}</h1>
-                <Link className="btn cta bg yel" to='/draw' game={this.state}>Go</Link>
+                <Link to='/draw' game={this.state}><Button label='GO!' value='solo' name='category'/></Link>
             </div>
             </div>
             </div>
