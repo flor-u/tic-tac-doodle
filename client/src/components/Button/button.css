@@ -1,7 +1,7 @@
 .butn {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     outline: none;
     cursor: pointer;
     display: inline-block;
@@ -37,7 +37,7 @@
   .inside>a {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     color: rgb(16, 24, 50);
   }
   

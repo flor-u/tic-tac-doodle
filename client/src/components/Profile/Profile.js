@@ -41,14 +41,14 @@ export default class Profile extends Component {
         <div className='profile'>
           <div>
             <h2>Hi, {this.state.user.username}</h2>
-            <h5><a className='doodles-link' href="" onClick={()=> this.updateDoodleList()}>Your saved doodles</a></h5>
+            <h5><a className='doodles-link' href="#" onClick={()=> this.updateDoodleList()}>Your saved doodles</a></h5>
           </div>
           <div className='gallery'>
             {this.state.user.doodles.map((doodle, idx) => {
               return (
                 <div key={idx} className='doodleCard'>
-                  <button className='bg yel' value={idx} onClick={e => this.deleteDoodle(e)}>
-                    X
+                  <button className='' value={idx} onClick={e => this.deleteDoodle(e)}>
+                  <svg width="12px" height="12px" viewBox="0 0 16 16" version="1.1"><title>close</title><g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g fill="#00f9bd"><polygon points="9.88283659 8 15.983556 14.1234568 14.0924974 16 7.99177801 9.89300412 1.89105858 16 0 14.1234568 6.10071942 8 0 1.89300412 1.89105858 0 7.99177801 6.10699588 14.1089414 0 16 1.87654321"></polygon></g></g></svg>
                   </button>
                   <img src={doodle} alt=""/>
                 </div>

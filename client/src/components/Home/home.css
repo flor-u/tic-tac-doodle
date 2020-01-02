@@ -2,16 +2,16 @@ h3 {
   color: rgb(16, 24, 50);
   font-size: 2.6rem;
   font-family: 'Nanum Pen Script', cursive;
-  font-weight: 600;
+  font-weight: 400;
   text-align: center;
   line-height: 3rem;
-  margin: 0;
+  margin: 1.6rem;
   letter-spacing: .01rem;
 }
 
 .container-home {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   box-sizing: border-box;
 }
@@ -21,10 +21,44 @@ h3 {
   flex-direction: column;
   align-content: center;
   justify-content: space-evenly;
-  height: 90%;
+  height: 100%;
 }
 
 .button-wrapper{
 display: flex;
 justify-content: center;
 }
+
+@keyframes jackInTheBox {
+  from {
+    opacity: 0;
+    -webkit-transform: scale(0.1) rotate(30deg);
+    transform: scale(0.1) rotate(30deg);
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+  }
+
+  50% {
+    -webkit-transform: rotate(-10deg);
+    transform: rotate(-10deg);
+  }
+
+  70% {
+    -webkit-transform: rotate(3deg);
+    transform: rotate(3deg);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.jackInTheBox {
+  margin-bottom: 1.6rem;
+  -webkit-animation-name: jackInTheBox;
+  animation-name: jackInTheBox;
+  animation: jackInTheBox 1.2s 1 ease-out;
+}
+

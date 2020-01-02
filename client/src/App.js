@@ -12,7 +12,7 @@ import Login from "./components/Login";
 
 import Profile from "./components/Profile/Profile";
 
-import Draw from "./components/Draw";
+import Draw from "./components/SoloDraw/Draw";
 import ChooseGame from "./components/ChooseGame";
 import WordToDraw from "./components/Word/WordToDraw";
 
