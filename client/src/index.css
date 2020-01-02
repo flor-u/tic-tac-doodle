@@ -1,4 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,900|Nanum+Pen+Script|IBM+Plex+Mono:400,600&display=swap');
+html{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   color: rgb(16, 24, 50);
@@ -16,9 +22,14 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   width: 100vw;
-  height: 100vh;
+  min-height: 100%;
+  align-content: center;
+  border: .6rem solid #C2EFF5;
 }
 
+#canvas {
+  border: .2rem solid rgb(16, 24, 50);
+}
 
 a {
   text-decoration: none;
@@ -34,23 +45,9 @@ h1 {
   letter-spacing: 0.08em;
 }
 
-h2{
+h2 {
   font-size: 3rem;
   text-align: left;
-}
-
-.login-svg{
-  margin-bottom: 4rem;
-}
-
-h3 {
-  color: rgb(16, 24, 50);
-  font-size: 3rem;
-  font-family: 'Nanum Pen Script', cursive;
-  text-align: center;
-  font-weight: 500;
-  line-height: 3rem;
-  margin: 1rem;
 }
 
 h4 {
@@ -62,11 +59,10 @@ h4 {
 h5 {
   font-size: 1.6rem;
   font-family: 'Nanum Pen Script', cursive;
-  margin-bottom:0;
+  margin-bottom: 0;
   text-align: left;
   letter-spacing: 0.08rem;
 }
-
 
 h6 {
   font-size: .8rem;
@@ -88,15 +84,6 @@ label {
   margin-bottom: .5rem;
 }
 
-/* input[type="text"] {
-  outline: none;
-  background-color: #C2EFF5;
-
-} */
-.padding{
-padding: 2rem;
-}
-
 .flex {
   display: flex;
   flex-direction: column;
@@ -104,8 +91,8 @@ padding: 2rem;
   justify-content: space-evenly;
 }
 
-#cont{
- margin-left: 2rem;
+#cont {
+  margin-left: 2rem;
 }
 
 .full {
@@ -113,9 +100,9 @@ padding: 2rem;
   height: 100vh;
 }
 
-.third{
-width:33%;
-/* margin: 0 auto; */
+.third {
+  width: 33%;
+  /* margin: 0 auto; */
 
 }
 
@@ -162,13 +149,6 @@ width:33%;
   transform-origin: rigth top;
   transition: all 180ms ease-in-out;
   min-width: 10rem
-}
-
-.btn::before,
-::after {
-  display: block;
-  position: absolute;
-  z-index: -1;
 }
 
 .btn::before {
@@ -309,42 +289,6 @@ width:33%;
   padding: 0.3rem 0.6rem;
 }
 
-.doodleCard{
-  width: 16rem;
-  border: 3px solid rgb(16, 24, 50);
-    margin-bottom: 1.2rem;
-    display: block;
-    position: relative; 
-    box-shadow: rgba(0, 0, 0, 0.5) -8px 8px; 
-}
-
-/* 
-.doodleCard::before,
-.doodleCard::after {
-  content: '';
-    position: absolute;
-}
-
-.doodleCard::before {
-  top: 2px;              
-    left: -13px;          
-    width: 10px;
-    height: 102%;
-    background: #FDED01;
-    transform: skewY(-45deg);
-}
-
-.doodleCard::after {
-  border: none;
-  background: #FFD504;
-   height: 10px;
-    width: 102%;
-    bottom: -13px;                     
-    top: auto;
-    right: 3px;
-    transform: skewX(-45deg); 
-}
- */
 
 .chatBox {
   overflow-y: scroll;
@@ -354,9 +298,9 @@ width:33%;
   text-align: left;
   line-height: 1.2rem;
   margin-bottom: 0;
-  max-height: 10vh;;
+  max-height: 10vh;
 }
 
-.word{
+.word {
   text-align: center;
 }

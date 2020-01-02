@@ -1,13 +1,11 @@
-.container {
+.select {
     display: flex;
     flex-direction: column;
-    font-size: 10px;
     width: 100vw;
     height: 100vh;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    border: .6rem solid #C2EFF5;
 }
 
 .page {
@@ -18,3 +16,7 @@
     height: 100%;
 }
 
+.button-wrapper{
+    display: flex;
+    justify-content: center;
+    }

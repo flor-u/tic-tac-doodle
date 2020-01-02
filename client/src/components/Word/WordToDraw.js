@@ -67,7 +67,9 @@ export default class WordToDraw extends Component {
 
             <h3>You have 20 seconds to draw</h3>
                 <h1 className='words'>{this.state.word}</h1>
-                <Link to='/draw' game={this.state}><Button label='GO!' value='solo' name='category'/></Link>
+                <div className='button-wrapper'>
+                <Link to='/draw' game={this.state}><Button label='GO!'/></Link>
+                </div>
             </div>
             </div>
             </div>

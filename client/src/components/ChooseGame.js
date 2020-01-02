@@ -25,7 +25,7 @@ export default class ChooseGame extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className='select'>
       <NavBar props={this.props}></NavBar>
         <div className='page'>
         <div className="login-svg">
@@ -35,8 +35,7 @@ export default class ChooseGame extends Component {
 </svg>
 
         </div>
-        {/* <h3>How skilled are you feeling?</h3> */}
-        <div>
+        <div className='button-wrapper'>
             <Link to="/word-to-draw"> <Button label='easy' value='easy' name='category' onClick={this.handleChange}  /></Link>
           
             <Link to="/word-to-draw">

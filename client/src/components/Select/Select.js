@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
-import Button from "../Button/Button";
 import "./select.css";
+import Button from "../Button/Button";
 
 export default class Select extends Component {
   constructor(props) {
@@ -20,7 +20,7 @@ export default class Select extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className='select'>
         <NavBar props={this.props}></NavBar>
         <div className='page'>
           <div className='login-svg'>
@@ -35,7 +35,7 @@ export default class Select extends Component {
               />
             </svg>
           </div>
-          <div>
+          <div className='button-wrapper'>
             <Link to='/choose-game'>
               <Button label='solo' value='solo' name='category' onClick={this.handleChange} />
             </Link>

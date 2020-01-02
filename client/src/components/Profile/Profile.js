@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import Doodle from "../Doodle";
 import AuthService from "../../services/AuthService";
 import NavBar from "../NavBar/NavBar";
-import styled from 'styled-components'
 import './profile.css'
 
 export default class Profile extends Component {
@@ -38,9 +36,9 @@ export default class Profile extends Component {
 
   render() {
     return (
-      <div className='container'>
+      <div className='containerB'>
         <NavBar props={this.props}></NavBar>
-        <div className='home'>
+        <div className='profile'>
           <div>
             <h2>Hi, {this.state.user.username}</h2>
             <h5><a className='doodles-link' href="" onClick={()=> this.updateDoodleList()}>Your saved doodles</a></h5>
@@ -48,12 +46,11 @@ export default class Profile extends Component {
           <div className='gallery'>
             {this.state.user.doodles.map((doodle, idx) => {
               return (
-                <div key={idx}>
-                  
-                  <Doodle doodle={doodle} user={this.state.user} />
+                <div key={idx} className='doodleCard'>
                   <button className='bg yel' value={idx} onClick={e => this.deleteDoodle(e)}>
                     X
                   </button>
+                  <img src={doodle} alt=""/>
                 </div>
               );
             })}

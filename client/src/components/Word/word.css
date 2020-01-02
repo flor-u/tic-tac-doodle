@@ -17,13 +17,11 @@ h3 {
 }
 
 .container {
-    font-size: 10px;
     width: 100vw;
     height: 100vh;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    border: .6rem solid #C2EFF5;
 }
 
 .flex2 {
@@ -41,3 +39,4 @@ h3 {
   .yel:hover {
     background-color: #Fffffd;
   }
+  

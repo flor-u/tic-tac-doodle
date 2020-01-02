@@ -7,8 +7,8 @@ import Button from "../Button/Button";
 export default class Home extends Component {
   render() {
     return (
-      <div className='container'>
-        <div className='home'>
+      <div className='container-home'>
+        <div id='home'>
           <svg height='200' viewBox='0 0 1204 503' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <g clipPath='url(#clip0)'>
               <path
@@ -99,7 +99,7 @@ export default class Home extends Component {
             practise your drawing skills <br />
             trying to beat the clock
           </h3>
-          <div>
+          <div className='button-wrapper'>
             <Link to='/signup'>
               <Button label={"sign up"} />
             </Link>
