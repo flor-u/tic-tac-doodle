@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import AuthService from "../services/AuthService";
 import NavBar from "./NavBar/NavBar";
 import './Select/select.css'
 import Button from "./Button/Button";
@@ -13,14 +12,14 @@ export default class ChooseGame extends Component {
       user: this.props.appState.user,
       category:''
     }
-    this.authService = new AuthService();
     console.log(this.props.appState.user)
   }
 
   handleChange = e => {
-    const { name, value } = e.target;
-    this.props.setCategory({ [name]: value });
-    this.setState({'name': value})
+    console.log(e.target.innerHTML)
+    const value = e.target.innerHTML;
+    this.props.setCategory({ 'category' : value });
+    this.setState({'category': value})
   };
 
   render() {
@@ -36,12 +35,12 @@ export default class ChooseGame extends Component {
 
         </div>
         <div className='button-wrapper'>
-            <Link to="/word-to-draw"> <Button label='easy' value='easy' name='category' onClick={this.handleChange}  /></Link>
+            <Link to="/word-to-draw" onClick={e => this.handleChange(e)} > <Button label='easy' value='easy' name='category'  /></Link>
           
-            <Link to="/word-to-draw">
-          <Button label='medium' value='medium' name='category' onClick={this.handleChange}/></Link>
+            <Link to="/word-to-draw" onClick={e => this.handleChange(e)}>
+          <Button label='medium' value='medium' name='category'/></Link>
           
-          <Link to="/word-to-draw"><Button label='difficult' value='hard' name='category' onClick={this.handleChange}/></Link> 
+          <Link to="/word-to-draw" onClick={e => this.handleChange(e)} ><Button label='difficult' value='hard' name='category' /></Link> 
           
           </div>
         </div>

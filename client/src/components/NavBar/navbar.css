@@ -12,6 +12,7 @@ header {
 
 ul {
     display: flex;
+    margin-right:1rem;
 }
 
 li {
@@ -26,5 +27,7 @@ li {
 }
 
 li:hover{
-    opacity: 0.5;
+    opacity: .5;
+    text-decoration-line: underline;
+    text-decoration-skip: edges;
 }

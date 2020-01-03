@@ -84,7 +84,7 @@ class App extends React.Component {
             <Route exact path='/signup' render={match => <Signup {...match} setUser={this.setUser} />} />
             <Route exact path='/select' render={match => <Select {...match} setCategory={e => this.handleChange(e)} appState={this.state} info={this.updateUserList} />} />
             <Route exact path='/choose-game' render={match => <ChooseGame {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
-            <Route exact path='/word-to-draw' render={match => <WordToDraw {...match} setCategory={e => this.handleChange(e)} appState={this.state} />} />
+            <Route exact path='/word-to-draw' render={match => <WordToDraw {...match} setCategory={e => this.handleChange(e)} category={this.state.category} />} />
             <Route exact path='/profile' render={match => <Profile {...match} appState={this.state} />} />
             <Route exact path='/draw' render={match => <Draw {...match} appState={this.state}/>} />
             <Route exact path='/game' render={match => <GameWrapper {...match} username={this.state.user.username} category={this.state.category} userList={this.state.userList}/>} />

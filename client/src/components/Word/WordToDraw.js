@@ -12,14 +12,16 @@ export default class WordToDraw extends Component {
       game: { ...this.props.appState },
       words: [...Words],
       timeFinish: false,
-      word: ""
+      word: "",
+      wordCategory: this.props.category
     };
-    console.log(this.props);
+    console.log(this.state.wordCategory);
   }
 
   wordList = () => {
-    let category = [...this.state.words[0].medium];
-    let word = category[Math.floor(Math.random() * category.length)];
+    let categ = this.props.category;
+    let list = [...this.state.words][0][categ];
+    let word = list[Math.floor(Math.random() * list.length)];
     this.setState({ word: word });
   };
 
@@ -29,14 +31,13 @@ export default class WordToDraw extends Component {
 
   render() {
     const path = this.props.match.path;
-    console.log(path);
     return (
       <div className='container-word'>
         <NavBar props={this.props}></NavBar>
         <div className='flex2'>
           <div>
             <svg className='wobble-hor-bottom' width='100' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
-              <g clip-path='url(#clip0)' >
+              <g clipPath='url(#clip0)' >
                 <path
                   d='M158.84 34.49C160.05 33.23 161.03 31.62 163.2 32.4C163.269 32.4208 163.334 32.4548 163.39 32.5C167.74 36.25 172.21 39.86 176.39 43.81C178.08 45.41 177.24 47.7 174.39 50.34C169.34 46.03 164.32 41.77 159.39 37.47C158.39 36.68 157.61 35.77 158.84 34.49Z'
                   fill='#FDED01'
@@ -97,7 +98,6 @@ export default class WordToDraw extends Component {
                 </clipPath>
               </defs>
             </svg>
-
             <h3 id='word-to'>You have 20 seconds to draw</h3>
             <h1 className='words'>{this.state.word}</h1>
             <div className='button-wrapper'>
