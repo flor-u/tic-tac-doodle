@@ -15,7 +15,6 @@ export default class WordToDraw extends Component {
       word: "",
       wordCategory: this.props.category
     };
-    console.log(this.state.wordCategory);
   }
 
   wordList = () => {
@@ -30,7 +29,6 @@ export default class WordToDraw extends Component {
   }
 
   render() {
-    const path = this.props.match.path;
     return (
       <div className='container-word'>
         <NavBar props={this.props}></NavBar>
@@ -100,7 +98,7 @@ export default class WordToDraw extends Component {
             </svg>
             <h3 id='word-to'>You have 20 seconds to draw</h3>
             <h1 className='words'>{this.state.word}</h1>
-            <div className='button-wrapper'>
+            <div className='button-wrapper2'>
               <Link to='/draw' game={this.state}>
                 <Button label='GO!' />
               </Link>

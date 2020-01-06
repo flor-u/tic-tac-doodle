@@ -1,18 +1,18 @@
 .butn {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 1rem;
+  font-size: 1.6rem;
     font-weight: 500;
     outline: none;
     cursor: pointer;
     display: inline-block;
-    padding: 1.2rem 1.6rem;
+    padding: 1.6rem 2rem;
     margin: auto 2rem;
     position: relative;
     align-self: center;
     border: 3px solid rgb(16, 24, 50);
     transform-origin: rigth top;
     transition: all 180ms ease-in-out;
-    min-width: 10rem;
+    min-width: 16rem;
     box-shadow:
       -1px 1px 0px 0px rgb(16, 24, 50),
       -2px 2px 0px 0px rgb(16, 24, 50),
@@ -36,7 +36,7 @@
   
   .inside>a {
     font-family: 'IBM Plex Mono', monospace;
-    font-size: 1rem;
+    font-size: 1.6rem;
     font-weight: 400;
     color: rgb(16, 24, 50);
   }

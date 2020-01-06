@@ -13,10 +13,8 @@ export default class Guess extends Component {
     };
     this.socket = this.props.socket;
 
-    
       this.socket.on('delete-canvas', erase=>{
         console.log('b')
-        erase= true
         this.setState({
           erased: erase
         });
@@ -28,7 +26,7 @@ export default class Guess extends Component {
 
   setup = p5 => {
     p5.createCanvas(500, 350)
-    .parent("pictionary");
+    .parent("guess");
     p5.background(255);
   };
 
@@ -45,14 +43,11 @@ export default class Guess extends Component {
 
   render() {
     return (
-      // <div className='full cel'>
-       
         <div className='flex center'>
-          <div id='pictionary'>
+          <div id='guess'>
             <Sketch setup={this.setup} draw={this.draw} sendmouse={this.sendmouse}></Sketch>
           </div>
         </div>
-      // </div>
     );
   }
 }

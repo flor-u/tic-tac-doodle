@@ -95,11 +95,11 @@ export default class Home extends Component {
               </clipPath>
             </defs>
           </svg>
-          <h3>
+          <h3 id='h3-home'>
             practise your drawing skills <br />
             trying to beat the clock
           </h3>
-          <div className='button-wrapper'>
+          <div className='button-wrapper1'>
             <Link to='/signup'>
               <Button label={"sign up"} />
             </Link>

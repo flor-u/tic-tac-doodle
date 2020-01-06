@@ -18,24 +18,24 @@
 }
 
 .login-svg {
-    margin-bottom: 4rem;
+    margin-bottom: 5.4rem;
 }
 
 input {
     font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
     background-color: #fffffd;
-    margin-bottom: 3.5rem;
-    height: 2.8rem;
-    border: .2rem solid rgb(16, 24, 50);
-    width: 28vw;
+    margin-bottom: 5rem;
+    height: 4.2rem;
+    border: .3rem solid rgb(16, 24, 50);
+    width: 24vw;
     overflow: visible;
-    padding:0 1rem;
+    padding:0 1.6rem;
 }
 input:active{
   font-family: 'IBM Plex Mono', monospace;
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.6rem;
 }
 
 form {
@@ -47,8 +47,8 @@ form {
 
 label {
     font-family: 'IBM Plex Mono', monospace;
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 500;
+    font-size: 1.6rem;
     text-align: left;
-    margin-bottom: .5rem;
+    margin-bottom: 1rem;
 }

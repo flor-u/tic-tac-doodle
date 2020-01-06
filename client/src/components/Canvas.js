@@ -8,20 +8,23 @@ const ButtonWrapper = styled.div`
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding: 1.2rem;
+padding: 2.4rem;
 `;
 
 const Button= styled.button`
+font-weight: 500;
+    background-color: #C2EFF5;
+    color: rgb(16, 24, 50);
 border: 3px rgb(16, 24, 50) solid;
 outline: none;
   cursor: pointer;
-  min-width: 2rem;
-  padding: .4rem 1rem;
-  margin: auto 2rem;
-  box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
+  min-width: 3.2rem;
+  padding: .8rem 1.6rem;
+  margin: auto 3.2rem;
+  box-shadow: 3.2rem 3.2rem transparentize(rgb(16, 24, 50), 1);
   transform-origin: rigth top;
   font-family: 'Nanum Pen Script', cursive;
-  font-size: 1.6rem;
+  font-size: 2.4rem;
   &:active{
     transform: translateY(4px);
     box-shadow: 0 1px rgb(16, 24, 50);}
@@ -83,8 +86,8 @@ componentWillUnmount(){
       <React.Fragment>
       <div>
         <ButtonWrapper>
-          <Button className='bg' onClick={this.save}>save</Button>
-          <Button className='bg yel' onClick={this.erase}>x</Button>
+          <Button onClick={this.save}>save</Button>
+          <Button onClick={this.erase}>x</Button>
           </ButtonWrapper>
           <div id='canvas'>
             <Sketch setup={this.setup} draw={this.draw} clear={this.clear}/>

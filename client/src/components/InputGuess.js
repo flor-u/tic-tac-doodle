@@ -53,13 +53,13 @@ export default class InputGuess extends Component {
           placeholder='your guess...'
           value={this.state.text}
         />
-
+{/* 
         <Button className
         ='send yel'
           type='submit'
           >
           Send
-        </Button>
+        </Button> */}
         </form>
       </div>
     );

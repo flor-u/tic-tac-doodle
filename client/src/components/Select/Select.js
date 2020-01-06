@@ -35,7 +35,7 @@ export default class Select extends Component {
               />
             </svg>
           </div>
-          <div className='button-wrapper'>
+          <div className='button-wrapper2'>
             <Link to='/choose-game'>
               <Button label='solo' value='solo' name='category' onClick={this.handleChange} />
             </Link>

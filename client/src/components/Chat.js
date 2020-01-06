@@ -36,25 +36,9 @@ export default class Chat extends Component {
 
 
   render() {
-  // let users=[...new Set(this.props.list)]
     return (
       <div id='cont' className='flex'>
-        {/* Lista de usuarios */}
-        <div className='flex2'>
-          <h5>Players</h5>
-          <ul className='chatBox'>
-            {this.props.list.map((elem, idx) => {
-              return elem === this.props.user ? (
-                <li key={idx}>
-                  <b>{elem}</b>
-                </li>
-              ) : (
-                <li key={idx}>{elem}</li>
-              );
-            })}
-          </ul>
-        </div>
-
+        
         {/* Box que contiene el chat */}
         <div className='flex2'>
         <h5>What's the word?</h5>
@@ -73,6 +57,23 @@ export default class Chat extends Component {
             <InputGuess info={this.sendMessage}></InputGuess>
           </div>
         </div>
+
+        {/* Lista de usuarios */}
+        <div className='flex2'>
+          <h5>Players</h5>
+          <ul className='chatBox'>
+            {this.props.list.map((elem, idx) => {
+              return elem === this.props.user ? (
+                <li key={idx}>
+                  <b>{elem}</b>
+                </li>
+              ) : (
+                <li key={idx}>{elem}</li>
+              );
+            })}
+          </ul>
+        </div>
+
       </div>
     );
   }

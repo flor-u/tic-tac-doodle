@@ -1,19 +1,17 @@
-h3 {
+#h3-home {
   color: rgb(16, 24, 50);
-  font-size: 2.6rem;
+  font-size: 4rem;
   font-family: 'Nanum Pen Script', cursive;
   font-weight: 400;
   text-align: center;
-  line-height: 3rem;
-  margin: 1.6rem;
-  letter-spacing: .01rem;
+  line-height: 4.2rem;
+  margin: 3rem;
+  letter-spacing: .1rem;
 }
 
 .container-home {
   width: 100vw;
   height: 100%;
-  margin: 0;
-  box-sizing: border-box;
 }
 
 #home {
@@ -24,7 +22,7 @@ h3 {
   height: 100%;
 }
 
-.button-wrapper{
+.button-wrapper1{
 display: flex;
 justify-content: center;
 }

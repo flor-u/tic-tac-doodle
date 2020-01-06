@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
-import SendCanvas from "./SendCanvas";
+import SendCanvas from "./sendCanvas/SendCanvas";
 import Chat from "./Chat";
 import Guess from "./Guess";
 import NavBar from "./NavBar/NavBar";
@@ -10,14 +10,14 @@ const Button = styled.button`
   border: 3px rgb(16, 24, 50) solid;
   outline: none;
   cursor: pointer;
-  min-width: 2rem;
-  padding: 0.5rem 1rem;
-  box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
+  min-width: 3.2rem;
+  padding: 0.8rem 1.6rem;
+  box-shadow: 3.2rem 3.2rem transparentize(rgb(16, 24, 50), 1);
   transform-origin: rigth top;
   font-family: 'Nanum Pen Script', cursive;
   font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 0.05rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
 
   &:active{
     transform: translateY(4px);
@@ -31,19 +31,16 @@ export default class GameWrapper extends Component {
       userList: [],
       user: null,
       userID:null,
-      category: this.props.category
-      
+      category: this.props.category    
     };
+
     this.socket = io.connect("https://tic-tac-doodle.herokuapp.com/");
 
-
     this.socket.on("list", list => {
-      console.log(list);
       this.setState({ ...this.state, userList:list});
     });
   }
   
-
   updateUserList = name => {
     this.setState({ ...this.state, user: name }, () => {
       this.socket.emit("newUser", name);
@@ -62,20 +59,13 @@ export default class GameWrapper extends Component {
     this.updateUserList(this.props.username)
   }
 
-
-
   render() {
-
-    console.log(this.state);
     return this.state.userList[0]=== this.state.user ? (
-      <div className='full cel'>
+      <div className='full'>
         <NavBar props={this.props}></NavBar>
         <div className='center'>
-          <div>
             <SendCanvas socket={this.socket} user={this.state.user} props={this.props}></SendCanvas>
-          </div>
-          <div>
-            
+          <div className='center'>
             <Chat socket={this.socket} list={this.state.userList} user={this.state.user}></Chat>
           </div>
           <Button onClick={(e)=>{this.removeUser(e)}}>Leave Game</Button>

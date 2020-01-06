@@ -34,7 +34,7 @@ export default class ChooseGame extends Component {
 </svg>
 
         </div>
-        <div className='button-wrapper'>
+        <div className='button-wrapper2'>
             <Link to="/word-to-draw" onClick={e => this.handleChange(e)} > <Button label='easy' value='easy' name='category'  /></Link>
           
             <Link to="/word-to-draw" onClick={e => this.handleChange(e)}>

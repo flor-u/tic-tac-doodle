@@ -1,0 +1,82 @@
+.button-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50rem;
+    height: 10rem;
+}
+
+.start-button {
+    border: 3px rgb(16, 24, 50) solid;
+    outline: none;
+    cursor: pointer;
+    min-width: 3.2rem;
+    padding: 0.8rem 1.6rem;
+    box-shadow: 3.2rem 3.2rem transparentize(rgb(16, 24, 50), 1);
+    transform-origin: rigth top;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    font-size: 1.4rem;
+}
+
+.start-button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px rgb(16, 24, 50);
+}
+
+.bg {
+    font-weight: 500;
+    font-size: 1.4rem;
+    background-color: #C2EFF5;
+    /* border: 3px solid rgb(16,24,50); */
+    color: rgb(16, 24, 50);
+}
+
+
+.bg::before,
+::after {
+    background: rgb(16, 24, 50);
+    border: 2.4px solid rgb(16, 24, 50);
+
+}
+
+.bg:hover {
+    border-image: none;
+    background-color: #FDED01;
+    ;
+}
+
+.bg:hover::before,
+::after {
+    background: rgb(16, 24, 50);
+}
+
+.yel {
+    background-color: #FDED01;
+}
+
+.yel:hover {
+    background-color: #Fffffd;
+
+}
+
+.third {
+    width: 33%;
+    display: flex;
+    justify-content: center;
+}
+
+.canvas-placement {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+
+h4 {
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 3.2rem;
+    line-height: 0rem;
+    text-align: center;
+  }

@@ -1,7 +1,6 @@
 
 import React, { Component } from "react";
 import Countdown, {zeroPad } from "react-countdown-now";
-import CountdownApi from "react-countdown-now"
 
 
 export default class Clock extends Component {

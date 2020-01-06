@@ -1,34 +1,10 @@
 import React, { Component } from "react";
-import Sketch from "./Sketch";
-import Words from "../words.json";
-import styled from "styled-components";
-import Clock from "./Clock";
+import Sketch from "../Sketch";
+import Words from "../../words.json";
+import Clock from "../Clock";
+import './send.css'
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  width: 100%;
-`;
 
-const Button = styled.button`
-  border: 3px rgb(16, 24, 50) solid;
-  outline: none;
-  cursor: pointer;
-  min-width: 2rem;
-  padding: 0.5rem 1rem;
-  box-shadow: 2rem 2rem transparentize(rgb(16, 24, 50), 1);
-  transform-origin: rigth top;
-  font-family: 'Nanum Pen Script', cursive;
-  font-weight: 600;
-  font-size: 1.2rem;
-  letter-spacing: 0.05rem;
-
-  &:active{
-    transform: translateY(4px);
-    box-shadow: 0 1px rgb(16, 24, 50);}
-`;
 
 export default class SendCanvas extends Component {
   constructor(props) {
@@ -110,18 +86,11 @@ export default class SendCanvas extends Component {
     this.wordList();
   }
 
-  erase = e => {
-    e.preventDefault();
-    // this.setState({
-    //   erased: true
-    // });
-  };
 
   render() {
     return (
-      <div className='flex center'>
-        <ButtonWrapper>
-          {/* <h5 >Try drawing</h5> */}
+      <div className='canvas-placement'>
+        <div className='button-wrapper'>
           <div className='third'>
             <h4>{this.state.word}</h4>
           </div>
@@ -130,14 +99,11 @@ export default class SendCanvas extends Component {
           </div>
 
           <div className='third'>
-            <Button className='bg yel' onClick={this.start}>
-              Start
-            </Button>
-            {/* <Button className='bg yel' onClick={(e) => this.erase(e)}>
-            x
-          </Button> */}
+            <button className='start-button bg yel' onClick={this.start}>
+              start
+            </button>
           </div>
-        </ButtonWrapper>
+        </div>
         <div id='pictionary'>
           <Sketch setup={this.setup} draw={this.draw} sendmouse={this.sendmouse}></Sketch>
         </div>
