@@ -12,7 +12,6 @@ padding: 2.4rem;
 `;
 
 const Button= styled.button`
-font-weight: 500;
     background-color: #C2EFF5;
     color: rgb(16, 24, 50);
 border: 3px rgb(16, 24, 50) solid;
@@ -22,10 +21,15 @@ outline: none;
   padding: .8rem 1.6rem;
   margin: auto 3.2rem;
   box-shadow: 3.2rem 3.2rem transparentize(rgb(16, 24, 50), 1);
-  transform-origin: rigth top;
-  font-family: 'Nanum Pen Script', cursive;
-  font-size: 2.4rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.4rem;
+    font-weight: 500;
+&:hover{
+  background-color: #FDED01;
+}
   &:active{
+    background-color: #FDED01;
+    transform-origin: rigth top;
     transform: translateY(4px);
     box-shadow: 0 1px rgb(16, 24, 50);}
 `;
@@ -86,7 +90,7 @@ componentWillUnmount(){
       <React.Fragment>
       <div>
         <ButtonWrapper>
-          <Button onClick={this.save}>save</Button>
+          <Button className="yel" onClick={this.save}>save</Button>
           <Button onClick={this.erase}>x</Button>
           </ButtonWrapper>
           <div id='canvas'>
