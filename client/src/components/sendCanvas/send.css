@@ -1,9 +1,9 @@
 .button-wrapper {
+    margin-top: 1rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 50rem;
-    height: 10rem;
 }
 
 .start-button {
@@ -71,12 +71,20 @@
     flex-direction: column;
     align-content: center;
     justify-content: space-evenly;
+    height: 100%;;
 }
 
+h4{
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 0rem;
+}
 
-h4 {
-    font-family: 'Nanum Pen Script', cursive;
-    font-size: 3.2rem;
+h4>span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 400;
     line-height: 0rem;
     text-align: center;
   }

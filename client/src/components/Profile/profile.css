@@ -16,7 +16,7 @@ h2 {
     flex-direction: column;
     align-content: center;
     justify-content: space-evenly;
-   padding:4.8rem 0;
+    padding: 4.8rem 0;
 }
 
 .doodles-link {
@@ -50,7 +50,7 @@ h2 {
     width: 24rem;
 }
 
-button {
+.x-button {
     float: right;
     border: none;
     outline: none;
@@ -58,5 +58,9 @@ button {
     min-width: 3.2rem;
     padding: .8rem 1.2rem;
     margin: .8rem;
+}
+
+.x-button:active {
     transform-origin: rigth top;
+    transform: translateY(4px);
 }

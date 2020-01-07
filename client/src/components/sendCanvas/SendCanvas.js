@@ -91,8 +91,8 @@ export default class SendCanvas extends Component {
     return (
       <div className='canvas-placement'>
         <div className='button-wrapper'>
-          <div className='third'>
-            <h4>{this.state.word}</h4>
+          <div className=''>
+            <h4> draw: <span>{this.state.word}</span></h4>
           </div>
           <div className='third'>
             <Clock onFinish={() => this.onFinish()} refCallback={this.setClockRef} time='100'></Clock>

@@ -7,7 +7,7 @@ export default class Chat extends Component {
     console.log(this.props);
     this.state = {
       messages: [],
-      userList:this.props.list
+      userList: this.props.list
     };
 
     this.socket = this.props.socket;
@@ -18,7 +18,6 @@ export default class Chat extends Component {
       this.setState({ ...this.state, messages: mess });
     });
   }
-
 
   sendMessage = text => {
     if (text.trim() === "") return;
@@ -31,14 +30,30 @@ export default class Chat extends Component {
 
   componentDidUpdate() {
     document.getElementById("chatBox").scrollTop = document.getElementById("chatBox").scrollHeight;
-   
-  };
-
+  }
 
   render() {
     return (
-      <div id='cont' className='flex'>
+      <div id='cont' className='chat'>
+        {/* Lista de usuarios */}
+        <div className='players'>
+        <div>
+        <h5>Players</h5>
+        </div>
         
+          <ul className='list-group-item'>
+            {this.props.list.map((elem, idx) => {
+              return elem === this.props.user ? (
+                <li key={idx}>
+                  <b>*{elem}</b>
+                </li>
+              ) : (
+                <li key={idx}>{elem}</li>
+              );
+            })}
+          </ul>
+        </div>
+
         {/* Box que contiene el chat */}
         <div className='flex2'>
         <h5>What's the word?</h5>
@@ -52,28 +67,9 @@ export default class Chat extends Component {
             })}
           </div>
 
-          {/* Input para nuevos mensajes */}
-          <div className='flex2'>
+            {/* Input para nuevos mensajes */}
             <InputGuess info={this.sendMessage}></InputGuess>
-          </div>
         </div>
-
-        {/* Lista de usuarios */}
-        <div className='flex2'>
-          <h5>Players</h5>
-          <ul className='chatBox'>
-            {this.props.list.map((elem, idx) => {
-              return elem === this.props.user ? (
-                <li key={idx}>
-                  <b>{elem}</b>
-                </li>
-              ) : (
-                <li key={idx}>{elem}</li>
-              );
-            })}
-          </ul>
-        </div>
-
       </div>
     );
   }

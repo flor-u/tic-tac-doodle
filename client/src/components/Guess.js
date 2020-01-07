@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
 import Sketch from "./Sketch";
+import './sendCanvas/send.css'
 
 
 // const socket = io.connect("http://localhost:4000");
@@ -43,7 +44,8 @@ export default class Guess extends Component {
 
   render() {
     return (
-        <div className='flex center'>
+        <div className='canvas-placement'>
+        <div className="button-wrapper"></div>
           <div id='guess'>
             <Sketch setup={this.setup} draw={this.draw} sendmouse={this.sendmouse}></Sketch>
           </div>

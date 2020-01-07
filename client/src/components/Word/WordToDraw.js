@@ -32,7 +32,7 @@ export default class WordToDraw extends Component {
     return (
       <div className='container-word'>
         <NavBar props={this.props}></NavBar>
-        <div className='flex2'>
+        <div className='flex-word'>
           <div>
             <svg className='wobble-hor-bottom' width='100' viewBox='0 0 200 200' fill='none' xmlns='http://www.w3.org/2000/svg'>
               <g clipPath='url(#clip0)' >

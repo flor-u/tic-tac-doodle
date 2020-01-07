@@ -40,17 +40,17 @@ export default class InputGuess extends Component {
 
   render() {
     return (
-      <div className='flex2'>
+      <div className=''>
       <form onSubmit={e => {
             this.handlerSubmit(e);
-          }} className='flex2 textForm'>
+          }} className='textForm'>
         <input className
         ='guess-input'
           onChange={e => {
             this.handlerText(e);
           }}
           type="text"
-          placeholder='your guess...'
+          placeholder="What's the word?..."
           value={this.state.text}
         />
 {/* 
