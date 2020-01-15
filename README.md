@@ -19,12 +19,12 @@ Full Stack Single Page Application
 
 ### Technologies
 
-React.js
-Socket.io
-P5.js
-NodeJS
-ExpressJS
-MongoDB
+* React.js  
+* Socket.io  
+* P5.js  
+* NodeJS  
+* ExpressJS  
+* MongoDB  
 
 
 
